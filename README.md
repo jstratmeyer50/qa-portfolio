@@ -24,6 +24,7 @@ I've worked across **SaaS platforms**, **enterprise software**, and **mobile app
 | [`/checklists`](./checklists/) | Smoke, regression, and release readiness checklists |
 | [`/process-docs`](./process-docs/) | QA processes, workflows, and templates I've built or refined |
 | [`/exploratory-testing`](./exploratory-testing/) | Session-based exploratory testing notes and charters |
+| [`index.html`](./index.html) + [`styles.css`](./styles.css) | Lightweight portfolio landing page for web presentation |
 
 > ⚠️ **Note:** All artifacts use fictional product names and anonymized data. They are representative examples recreated from real experience.
 
@@ -87,6 +88,7 @@ Here's a quick preview of what's inside:
 - 🐛 **Bug Reports** — High-severity defects with clear reproduction steps and evidence
 - 📋 **Release Checklist** — Pre-production sign-off checklist for a mobile app release
 - 🔎 **Exploratory Testing Charter** — Session notes from an unscripted test session
+- 🌐 **Portfolio Homepage** — New `index.html` and `styles.css` landing page for browsing artifacts in a web-friendly format
 
 ---
 
