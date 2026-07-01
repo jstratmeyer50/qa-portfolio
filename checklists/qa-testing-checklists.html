@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA Testing Checklists | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul { margin: 1rem 0; }
+    .document-content ol li::marker { color: #8fff88; }
+    .document-content li { margin: 0.5rem 0; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0.75rem 0; }
+    .checkbox { width: 20px; height: 20px; border: 1px solid rgba(168, 255, 143, 0.6); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../checklists/">Checklists</a> / QA Testing Checklists
+      </div>
+
+      <div class="content-header">
+        <h1>QA Testing Checklists</h1>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Purpose</span><span class="meta-value">Release Readiness & Testing Gates</span></div>
+        <div class="meta-item"><span class="meta-label">Last Updated</span><span class="meta-value">2024-06-20</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Smoke Testing Checklist</h2>
+        <p><strong>Purpose:</strong> Quick validation that core features work after deployment.</p>
+        <p><strong>Duration:</strong> 30-45 minutes</p>
+        <p><strong>Frequency:</strong> Every build deployment</p>
+
+        <h3>Application Access & Login</h3>
+        <ul>
+          <li>Application homepage loads without errors</li>
+          <li>Login page displays correctly (all fields present)</li>
+          <li>Valid user can log in successfully</li>
+          <li>Invalid credentials show error message</li>
+          <li>Logout functionality works</li>
+        </ul>
+
+        <h3>Core User Workflows</h3>
+        <ul>
+          <li>User can create new project/workspace</li>
+          <li>User can view existing projects/workspaces</li>
+          <li>User can edit project settings</li>
+          <li>User can delete project (if permitted)</li>
+          <li>User can add team member to project</li>
+        </ul>
+
+        <h3>Database & API</h3>
+        <ul>
+          <li>API endpoints respond (check status codes)</li>
+          <li>Database queries execute without timeouts</li>
+          <li>Search functionality returns results</li>
+          <li>Data persistence: Create, Read, Update, Delete operations work</li>
+        </ul>
+
+        <h3>Performance & Stability</h3>
+        <ul>
+          <li>Application loads within acceptable time (<2s homepage)</li>
+          <li>No JavaScript console errors on key pages</li>
+          <li>No apparent memory leaks (browser dev tools)</li>
+          <li>Application remains responsive during basic usage</li>
+        </ul>
+
+        <h3>Sign-Off</h3>
+        <ul>
+          <li>✓ Smoke test passed — application is usable</li>
+          <li>OR ✗ Smoke test failed — critical issue found; halt further testing</li>
+        </ul>
+
+        <h2>2. Regression Testing Checklist</h2>
+        <p><strong>Purpose:</strong> Ensure existing features continue to work after changes.</p>
+        <p><strong>Duration:</strong> 2-4 days (depending on scope)</p>
+        <p><strong>Frequency:</strong> Every sprint / major release</p>
+
+        <h3>Authentication & Authorization</h3>
+        <ul>
+          <li>Login/logout workflow unchanged</li>
+          <li>Password reset flow works</li>
+          <li>Role-based permissions enforced</li>
+          <li>Session timeout occurs as expected</li>
+          <li>Multi-factor authentication (if enabled) functions</li>
+        </ul>
+
+        <h3>Core Features</h3>
+        <ul>
+          <li>Project/workspace creation & management</li>
+          <li>Document/file upload and download</li>
+          <li>Collaboration features (comments, sharing, permissions)</li>
+          <li>Search and filtering across data</li>
+          <li>Reporting and analytics dashboards</li>
+        </ul>
+
+        <h3>Data Integrity</h3>
+        <ul>
+          <li>No data loss on create/update/delete</li>
+          <li>Concurrent edits handled correctly</li>
+          <li>Undo/rollback features work as expected</li>
+          <li>Batch operations complete without errors</li>
+        </ul>
+
+        <h3>Cross-Browser & Cross-Device</h3>
+        <ul>
+          <li>Desktop: Chrome, Safari, Firefox, Edge — latest versions</li>
+          <li>Mobile: iOS Safari, Android Chrome</li>
+          <li>Responsive design works on all screen sizes</li>
+          <li>Touch interactions work on mobile/tablet</li>
+        </ul>
+
+        <h3>Integrations</h3>
+        <ul>
+          <li>Third-party integrations still functional</li>
+          <li>Webhooks deliver expected data</li>
+          <li>API endpoints backward compatible</li>
+          <li>Payment processing works (if applicable)</li>
+        </ul>
+
+        <h3>Sign-Off</h3>
+        <ul>
+          <li>✓ Regression test suite: ≥95% pass rate</li>
+          <li>✗ Critical issues found: Document and triage</li>
+        </ul>
+
+        <h2>3. Release Readiness Checklist</h2>
+        <p><strong>Purpose:</strong> Final gate before production deployment.</p>
+        <p><strong>Duration:</strong> 3-5 days</p>
+        <p><strong>Frequency:</strong> Before every production release</p>
+
+        <h3>Functional Testing Complete</h3>
+        <ul>
+          <li>All new features tested and verified</li>
+          <li>All bug fixes validated and closed</li>
+          <li>No open P0 (critical) or P1 (high) bugs</li>
+          <li>P2 (medium) bugs documented and prioritized for next release</li>
+        </ul>
+
+        <h3>Performance & Scalability</h3>
+        <ul>
+          <li>Load testing completed at expected traffic levels</li>
+          <li>Database query performance optimized</li>
+          <li>API response times acceptable (<500ms for critical paths)</li>
+          <li>No memory leaks detected under sustained load</li>
+        </ul>
+
+        <h3>Security & Compliance</h3>
+        <ul>
+          <li>Security review completed by security team</li>
+          <li>No SQL injection, XSS, CSRF vulnerabilities found</li>
+          <li>Sensitive data encrypted in transit and at rest</li>
+          <li>Compliance checklist (GDPR, SOC2, etc.) passed</li>
+          <li>Penetration testing completed (if required)</li>
+        </ul>
+
+        <h3>Infrastructure & DevOps</h3>
+        <ul>
+          <li>Deployment scripts tested and verified</li>
+          <li>Database migrations validated in staging</li>
+          <li>Backup and recovery procedures tested</li>
+          <li>Rollback plan documented and rehearsed</li>
+          <li>Monitoring and alerting configured</li>
+        </ul>
+
+        <h3>Documentation & Communication</h3>
+        <ul>
+          <li>Release notes prepared and reviewed</li>
+          <li>API documentation updated (if changes)</li>
+          <li>User guides/help articles updated</li>
+          <li>Customer communication drafted (if breaking changes)</li>
+          <li>Internal team briefing scheduled</li>
+        </ul>
+
+        <h3>Sign-Offs Required</h3>
+        <ul>
+          <li>✓ QA Lead: Testing complete, quality gates met</li>
+          <li>✓ Dev Lead: Code review complete, deployment ready</li>
+          <li>✓ Product Manager: Features meet requirements, ready for release</li>
+          <li>✓ Security: No security vulnerabilities</li>
+          <li>✓ Operations: Infrastructure ready, monitoring configured</li>
+        </ul>
+
+        <h2>4. Mobile-Specific Checklist</h2>
+        <p><strong>Platforms:</strong> iOS, Android</p>
+
+        <h3>Functionality</h3>
+        <ul>
+          <li>App installs without errors</li>
+          <li>Core features work on both iOS and Android</li>
+          <li>Orientation changes (portrait ↔ landscape) handled</li>
+          <li>App backgrounding and resumption work correctly</li>
+          <li>Deep linking functions as expected</li>
+        </ul>
+
+        <h3>Permissions</h3>
+        <ul>
+          <li>Camera permission requests and handling</li>
+          <li>Location permission requests and handling</li>
+          <li>Photo library/gallery access permission</li>
+          <li>Contacts access permission (if applicable)</li>
+          <li>App works when permissions are denied</li>
+        </ul>
+
+        <h3>Push Notifications</h3>
+        <ul>
+          <li>Push notifications deliver on iOS</li>
+          <li>Push notifications deliver on Android</li>
+          <li>Tapping notification opens correct screen</li>
+          <li>Notification content displays correctly</li>
+        </ul>
+
+        <h3>Network Resilience</h3>
+        <ul>
+          <li>App handles WiFi disconnection gracefully</li>
+          <li>App handles cellular network switch</li>
+          <li>Offline mode displays appropriate message</li>
+          <li>Data syncs when connection restored</li>
+        </ul>
+
+        <h2>5. Accessibility Checklist</h2>
+        <p><strong>Standard:</strong> WCAG 2.1 AA</p>
+
+        <h3>Screen Reader Support</h3>
+        <ul>
+          <li>All interactive elements accessible to VoiceOver (iOS) / TalkBack (Android)</li>
+          <li>Screen reader announces page titles and section headings</li>
+          <li>Links and buttons have descriptive labels</li>
+          <li>Form inputs have associated labels</li>
+          <li>Dynamic content updates announced</li>
+        </ul>
+
+        <h3>Keyboard Navigation</h3>
+        <ul>
+          <li>All functions accessible via keyboard</li>
+          <li>Tab order logical and intuitive</li>
+          <li>Focus indicator visible and clear</li>
+          <li>No keyboard traps</li>
+        </ul>
+
+        <h3>Color & Contrast</h3>
+        <ul>
+          <li>Text contrast ≥4.5:1 (normal) / ≥3:1 (large)</li>
+          <li>Color not sole means of conveying information</li>
+          <li>Interactive elements distinguishable</li>
+        </ul>
+
+        <h3>Text & Typography</h3>
+        <ul>
+          <li>Minimum text size 16px for body text</li>
+          <li>Text can be resized up to 200%</li>
+          <li>Line spacing ≥1.5</li>
+          <li>Text not justified (left-aligned preferred)</li>
+        </ul>
+      </div>
+
+      <a href="../checklists/" class="back-link">← Back to Checklists</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

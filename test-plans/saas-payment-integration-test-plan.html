@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Payment Integration Test Plan | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-plans/">Test Plans</a> / SaaS Payment Integration Test Plan
+      </div>
+
+      <div class="content-header">
+        <h1>Test Plan: Payment Processor Integration</h1>
+        <p style="color: #8fff88; font-style: italic;">SaaS Platform</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Version</span><span class="meta-value">1.0</span></div>
+        <div class="meta-item"><span class="meta-label">Author</span><span class="meta-value">QA Lead</span></div>
+        <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">2024-Q2</span></div>
+        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Ready for Review</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Executive Summary</h2>
+        <p>This test plan outlines the comprehensive strategy for validating the integration of a third-party payment processor into our SaaS billing platform. The integration enables customers to process transactions via multiple payment methods (credit cards, ACH, digital wallets) with improved security and reduced infrastructure overhead.</p>
+        <p><strong>Criticality:</strong> HIGH — Payment processing is core to revenue generation and customer trust.</p>
+
+        <h2>2. Objectives</h2>
+        <ul>
+          <li>Validate all payment transaction flows (one-time and recurring) function correctly</li>
+          <li>Verify PCI DSS compliance and secure handling of sensitive data</li>
+          <li>Confirm error handling for declined, timeout, and edge-case scenarios</li>
+          <li>Validate reconciliation between our platform and processor records</li>
+          <li>Ensure backward compatibility with existing billing workflows</li>
+          <li>Test failover and recovery procedures</li>
+        </ul>
+
+        <h2>3. Scope</h2>
+
+        <h3>In Scope</h3>
+        <ul>
+          <li>Payment processor API integration (credit cards, ACH, wallet)</li>
+          <li>Payment status updates and webhooks</li>
+          <li>Invoice generation and delivery post-payment</li>
+          <li>Refund processing and partial refunds</li>
+          <li>Subscription renewal automation</li>
+          <li>Error scenarios (declined cards, insufficient funds, network timeouts)</li>
+          <li>UI/UX for payment entry and confirmation</li>
+          <li>Reporting and analytics dashboards</li>
+          <li>Multiple currency support (USD, EUR, GBP)</li>
+        </ul>
+
+        <h3>Out of Scope</h3>
+        <ul>
+          <li>PCI audit compliance validation (handled by security team)</li>
+          <li>Load testing at scale (separate performance testing phase)</li>
+          <li>Manual payment entry in backend admin console</li>
+          <li>Historical payment data migration</li>
+        </ul>
+
+        <h2>4. Test Strategy</h2>
+
+        <h3>Testing Types</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Approach</th>
+              <th>Effort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Functional</strong></td>
+              <td>Direct testing of payment flows via UI and API</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td><strong>Integration</strong></td>
+              <td>Validate webhook delivery and data sync</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td><strong>Regression</strong></td>
+              <td>Ensure existing billing features still work</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <td><strong>Negative/Edge Case</strong></td>
+              <td>Declined cards, timeouts, duplicate requests</td>
+              <td>15%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5. Risk Assessment</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Payment data leak/exposure</td>
+              <td>Low</td>
+              <td>Critical</td>
+              <td>SSL encryption, tokenization, PCI audit review</td>
+            </tr>
+            <tr>
+              <td>Transactions processed twice</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Idempotency keys, duplicate detection, audit logs</td>
+            </tr>
+            <tr>
+              <td>Webhook delivery failures</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Retry logic, manual reconciliation reports</td>
+            </tr>
+            <tr>
+              <td>Reconciliation drift (us vs. processor)</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Daily reconciliation job, alerting, root cause analysis</td>
+            </tr>
+            <tr>
+              <td>Customer refund delays</td>
+              <td>Low</td>
+              <td>Medium</td>
+              <td>Automated refund API, status tracking, customer communication</td>
+            </tr>
+            <tr>
+              <td>API rate limiting issues</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Load testing, request queuing, processor quota increase</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Entry Criteria</h2>
+        <ul>
+          <li>Payment processor sandbox account provisioned</li>
+          <li>API documentation complete and shared</li>
+          <li>Test data sets prepared (valid/invalid card numbers)</li>
+          <li>Staging environment ready (database, web servers, API)</li>
+          <li>Development integration code review completed</li>
+          <li>Security team sign-off on data handling approach</li>
+          <li>Test plan reviewed and approved by stakeholders</li>
+        </ul>
+
+        <h2>7. Exit Criteria</h2>
+        <ul>
+          <li>100% of functional test cases executed with ≥95% pass rate</li>
+          <li>All critical bugs resolved and verified</li>
+          <li>Regression test suite passes (existing billing features)</li>
+          <li>All edge cases tested (declined, timeout, duplicate scenarios)</li>
+          <li>Reconciliation testing successful (processor ↔ platform)</li>
+          <li>Performance acceptable (API response time <500ms for transactions)</li>
+          <li>UAT sign-off from Finance and Product teams</li>
+          <li>Release notes prepared for customer communication</li>
+        </ul>
+
+        <h2>8. Test Schedule</h2>
+
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Duration</th><th>Timeline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Prep</strong> (env setup, test data)</td><td>1 week</td><td>Week 1</td></tr>
+            <tr><td><strong>Integration Testing</strong> (API validation)</td><td>2 weeks</td><td>Weeks 2–3</td></tr>
+            <tr><td><strong>Functional Testing</strong> (UI & workflows)</td><td>2 weeks</td><td>Weeks 3–4</td></tr>
+            <tr><td><strong>Regression Testing</strong></td><td>1 week</td><td>Week 5</td></tr>
+            <tr><td><strong>UAT</strong></td><td>1 week</td><td>Week 6</td></tr>
+            <tr><td><strong>Buffer/Retesting</strong></td><td>1 week</td><td>Week 7</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Go-Live Target:</strong> End of Week 7</p>
+
+        <h2>9. Resources</h2>
+
+        <h3>Team</h3>
+        <ul>
+          <li>QA Lead (test planning, coordination, critical issue triage)</li>
+          <li>QA Analysts × 2 (functional & integration testing)</li>
+          <li>QA Automation Engineer (API test automation)</li>
+          <li>Dev Lead (integration support, sandbox access)</li>
+          <li>Business Analyst (requirement clarification, UAT coordination)</li>
+        </ul>
+
+        <h2>10. Test Deliverables</h2>
+        <ul>
+          <li>Test Plan (this document)</li>
+          <li>Test Case Suite (minimum 75 test cases)</li>
+          <li>API Integration Test Scripts</li>
+          <li>Regression Test Suite (existing billing features)</li>
+          <li>Test Summary Report (results, defects, recommendations)</li>
+          <li>Defect Report (all issues, severity/priority)</li>
+          <li>Release Notes for customers (features, transaction limits, support contacts)</li>
+        </ul>
+
+        <h2>11. Assumptions & Dependencies</h2>
+
+        <h3>Assumptions:</h3>
+        <ul>
+          <li>Processor API documentation is complete and stable</li>
+          <li>Staging environment mirrors production (same version, config)</li>
+          <li>Test data can include anonymized real transaction patterns</li>
+          <li>Team members have required system access by start date</li>
+        </ul>
+
+        <h3>Dependencies:</h3>
+        <ul>
+          <li>Developer integration completion by Week 1</li>
+          <li>Processor sandbox credentials by Week 1</li>
+          <li>UAT team availability for Week 6</li>
+        </ul>
+      </div>
+
+      <a href="../test-plans/" class="back-link">← Back to Test Plans</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

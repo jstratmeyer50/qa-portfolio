@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample Defect Reports | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .meta-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 3px; font-size: 0.85rem; font-weight: 600; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+    .badge-high { background: rgba(255, 76, 76, 0.2); color: #ff6b6b; border: 1px solid rgba(255, 76, 76, 0.4); }
+    .badge-medium { background: rgba(255, 193, 7, 0.2); color: #ffc107; border: 1px solid rgba(255, 193, 7, 0.4); }
+    .bug-section { margin: 2rem 0; padding: 1.5rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .bug-title { font-size: 1.2rem; color: #b8ff8f; font-weight: 700; margin: 0 0 1rem 0; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content h4 { margin: 1rem 0 0.5rem 0; color: #a8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../bug-reports/">Bug Reports</a> / Sample Defect Reports
+      </div>
+
+      <div class="content-header">
+        <h1>Bug Report: Sample Defect Documentation</h1>
+      </div>
+
+      <div class="document-content">
+        <p><strong>Report Date:</strong> 2024-06-20 | <strong>Reported By:</strong> Senior QA Analyst | <strong>System:</strong> Project Management Platform</p>
+
+        <h2>BUG-047: Session Timeout Not Firing Consistently</h2>
+
+        <div class="bug-section">
+          <div style="margin-bottom: 1rem;">
+            <span class="meta-badge badge-high">Severity: HIGH</span>
+            <span class="meta-badge badge-high">Priority: P1</span>
+          </div>
+          <p><strong>Status:</strong> Under Investigation | <strong>Assigned To:</strong> Backend Team Lead</p>
+        </div>
+
+        <h3>Summary</h3>
+        <p>Users remain authenticated beyond the 30-minute session timeout threshold. Timeout is supposed to trigger after 30 minutes of inactivity, but it fires inconsistently or not at all. This can result in unauthorized access if a user leaves their device unattended.</p>
+        <p><strong>Security Impact:</strong> ⚠️ MEDIUM — Could allow unauthorized access to unattended sessions on shared devices.</p>
+
+        <h3>Environment</h3>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Environment</strong></td><td>QA Staging (prod-like)</td></tr>
+            <tr><td><strong>OS/Browser</strong></td><td>macOS Ventura, Chrome 123</td></tr>
+            <tr><td><strong>Date Found</strong></td><td>2024-06-15</td></tr>
+            <tr><td><strong>Reproducibility</strong></td><td>Intermittent (60% of attempts)</td></tr>
+            <tr><td><strong>Build/Version</strong></td><td>v2.3.1-beta</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Steps to Reproduce</h3>
+        <ol>
+          <li>Log in with valid credentials (test.user@example.com / ValidPass123!)</li>
+          <li>Dashboard loads; user authenticated</li>
+          <li>Close all browser tabs; do NOT click logout</li>
+          <li>Wait exactly 30 minutes without any user action</li>
+          <li>Return to browser; open new tab and navigate to app URL</li>
+          <li><strong>Expected:</strong> Redirected to login page (session expired)</li>
+          <li><strong>Actual:</strong> Dashboard loads; user still authenticated ❌</li>
+        </ol>
+
+        <h3>Detailed Reproduction</h3>
+
+        <h4>Test 1 (Successful timeout — 20% of runs):</h4>
+        <pre><code>14:00 - Login successful
+14:30 - Inactivity threshold reached
+14:30 - Attempt to access dashboard
+14:30 - Redirected to login page ✓ (timeout worked)</code></pre>
+
+        <h4>Test 2 (Failed timeout — 80% of runs):</h4>
+        <pre><code>14:00 - Login successful
+14:30 - Inactivity threshold reached
+14:30 - Attempt to access dashboard
+14:30 - Dashboard loads; still authenticated ❌ (timeout failed)</code></pre>
+
+        <h3>Actual Behavior</h3>
+        <ul>
+          <li>User session persists beyond 30-minute timeout</li>
+          <li>No logout/redirect occurs</li>
+          <li>Session remains valid for subsequent API requests</li>
+          <li>No error message or warning shown to user</li>
+        </ul>
+
+        <h3>Expected Behavior</h3>
+        <ul>
+          <li>After 30 minutes of inactivity, session should expire</li>
+          <li>User navigating to app should be redirected to login page</li>
+          <li>API requests with expired token should return 401 Unauthorized</li>
+          <li>Session data should be cleared from backend database</li>
+        </ul>
+
+        <h3>Root Cause Analysis (Pending)</h3>
+
+        <h4>Hypothesis 1:</h4>
+        <p><strong>Background API calls refreshing session timer</strong></p>
+        <ul>
+          <li>App makes background calls (polling, sync) that reset the inactivity timer</li>
+          <li>Investigation: Check network logs for unexpected API calls during "inactivity"</li>
+        </ul>
+
+        <h4>Hypothesis 2:</h4>
+        <p><strong>Session timeout logic has race condition</strong></p>
+        <ul>
+          <li>Multiple processes checking/updating session state simultaneously</li>
+          <li>Investigation: Database lock contention or async/await timing issues</li>
+        </ul>
+
+        <h4>Hypothesis 3:</h4>
+        <p><strong>Client-side session manager not honoring server-side expiration</strong></p>
+        <ul>
+          <li>Server marks session as expired, but client doesn't check until API error</li>
+          <li>Investigation: Review client token refresh logic</li>
+        </ul>
+
+        <h3>Attachments</h3>
+
+        <h4>Network Logs (Charles Proxy capture):</h4>
+        <pre><code>[14:00:05] POST /api/auth/login → 200 OK
+[14:00:10] session_id=abc123def456 (set in cookies)
+[14:15:00] GET /api/dashboard → 200 OK (unexpected API call during "inactivity")
+[14:30:00] Attempted logout request (never sent)</code></pre>
+
+        <h4>Database Query Results:</h4>
+        <pre><code>-- Session table at 14:30
+SELECT * FROM sessions WHERE user_id=123;
+-- Result: session still exists; expires_at is in future (incorrect)</code></pre>
+
+        <h3>Impact Assessment</h3>
+        <ul>
+          <li><strong>Affected Users:</strong> All users</li>
+          <li><strong>Frequency:</strong> Intermittent (60–80% of cases)</li>
+          <li><strong>User Impact:</strong> Security risk on shared devices; potential data exposure if device left unattended; user may not realize they're still logged in</li>
+          <li><strong>Business Impact:</strong> Regulatory compliance risk (SOC2, GDPR); potential customer escalation if sensitive data accessed; must be fixed before release</li>
+        </ul>
+
+        <h3>Workaround</h3>
+        <ul>
+          <li><strong>For QA:</strong> Log out manually instead of relying on timeout.</li>
+          <li><strong>For Users:</strong> No workaround; security vulnerability requires fix.</li>
+        </ul>
+
+        <h3>Questions for Developer</h3>
+        <ol>
+          <li>Are background sync/polling calls updating the session timestamp?</li>
+          <li>Does the token refresh logic check server-side expiration?</li>
+          <li>Is there a race condition in the session check logic?</li>
+          <li>Can you enable debug logging to trace session lifecycle?</li>
+        </ol>
+
+        <h3>Next Steps</h3>
+        <ol>
+          <li>Developer to investigate root cause (prioritize Hypothesis 1 & 2)</li>
+          <li>Provide debug logs and code review findings</li>
+          <li>QA to validate fix with additional edge case testing</li>
+          <li>Security team to assess compliance implications</li>
+          <li>Customer communication if production impact exists</li>
+        </ol>
+      </div>
+
+      <a href="../bug-reports/" class="back-link">← Back to Bug Reports</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

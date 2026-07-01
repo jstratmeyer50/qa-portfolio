@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Critical Regression Test Plan | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-plans/">Test Plans</a> / Critical Regression Test Plan
+      </div>
+
+      <div class="content-header">
+        <h1>Test Plan: Critical Regression Testing</h1>
+        <p style="color: #8fff88; font-style: italic;">Authentication System Overhaul</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Version</span><span class="meta-value">1.0</span></div>
+        <div class="meta-item"><span class="meta-label">Author</span><span class="meta-value">QA Manager</span></div>
+        <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">2024-Q1</span></div>
+        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Approved for Execution</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Executive Summary</h2>
+        <p>This test plan establishes the regression testing strategy for a major overhaul of the platform's authentication and authorization system. The project replaces legacy session-based authentication with OAuth 2.0 + JWT tokens and introduces role-based access control (RBAC) enhancements.</p>
+        <p><strong>Criticality:</strong> CRITICAL — Any authentication/authorization failure results in complete platform outage or security breach.</p>
+
+        <h2>2. Objectives</h2>
+        <ul>
+          <li>Verify all existing login/logout workflows continue to function with new authentication mechanism</li>
+          <li>Confirm all user roles and permissions continue to enforce access controls correctly</li>
+          <li>Validate session management, token refresh, and timeout behavior</li>
+          <li>Test integration with existing single sign-on (SSO) providers</li>
+          <li>Verify API backward compatibility for authenticated endpoints</li>
+          <li>Ensure no cross-tenant data leakage due to authorization changes</li>
+          <li>Validate password reset, account recovery flows</li>
+          <li>Test concurrent session management (multi-device login)</li>
+          <li>Verify audit logging of authentication events</li>
+        </ul>
+
+        <h2>3. Scope</h2>
+
+        <h3>In Scope</h3>
+
+        <h4>Authentication Flows:</h4>
+        <ul>
+          <li>Username/password login</li>
+          <li>Social login (Google, Microsoft, GitHub)</li>
+          <li>SAML SSO (enterprise customers)</li>
+          <li>Password reset via email</li>
+          <li>Account lockout after failed attempts</li>
+          <li>Multi-factor authentication (MFA) — email, TOTP</li>
+          <li>Session timeout and forced re-authentication</li>
+          <li>"Remember me" / persistent login</li>
+        </ul>
+
+        <h4>Authorization & Access Control:</h4>
+        <ul>
+          <li>Role-based access control (Admin, Editor, Viewer, Guest)</li>
+          <li>Resource-level permissions (view/edit/delete documents)</li>
+          <li>Team/organization scoping (multi-tenant isolation)</li>
+          <li>Permission inheritance and overrides</li>
+          <li>API token scopes and rate limiting</li>
+        </ul>
+
+        <h2>4. Test Strategy</h2>
+
+        <h3>Risk-Based Testing Approach</h3>
+        <p>Since this is a critical system with high failure risk, we employ risk-based testing to prioritize the most impactful scenarios:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Risk Tier</th>
+              <th>Scenarios</th>
+              <th>Test Effort</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CRITICAL</strong></td>
+              <td>Login/logout, RBAC enforcement, data isolation, session timeout</td>
+              <td>35%</td>
+              <td>Must pass 100%</td>
+            </tr>
+            <tr>
+              <td><strong>HIGH</strong></td>
+              <td>Password reset, MFA, SSO, API authentication</td>
+              <td>35%</td>
+              <td>Must pass ≥95%</td>
+            </tr>
+            <tr>
+              <td><strong>MEDIUM</strong></td>
+              <td>Account lockout, persistent login, token refresh edge cases</td>
+              <td>20%</td>
+              <td>Must pass ≥90%</td>
+            </tr>
+            <tr>
+              <td><strong>LOW</strong></td>
+              <td>UI error messages, logging, audit trails</td>
+              <td>10%</td>
+              <td>Must pass ≥85%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5. Risk Assessment & Mitigation</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Mitigation Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>User locked out of platform</strong></td>
+              <td>Medium</td>
+              <td>CRITICAL</td>
+              <td>Comprehensive login/logout test coverage; rollback plan</td>
+            </tr>
+            <tr>
+              <td><strong>Authorization bypass</strong></td>
+              <td>Low</td>
+              <td>CRITICAL</td>
+              <td>Detailed RBAC testing matrix; security peer review</td>
+            </tr>
+            <tr>
+              <td><strong>Token expiration not handled</strong></td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Test token refresh on all endpoints</td>
+            </tr>
+            <tr>
+              <td><strong>SSO integration breaks</strong></td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Pre-release SSO provider testing</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Entry Criteria</h2>
+        <ul>
+          <li>New authentication system deployed to QA environment</li>
+          <li>Legacy authentication system still operational for rollback</li>
+          <li>Test data prepared (users with various roles, SSO integrations configured)</li>
+          <li>API documentation updated with new authentication headers</li>
+          <li>Mobile app build with new OAuth flow compiled</li>
+          <li>SSO providers configured in QA environment</li>
+          <li>Audit logging system capturing authentication events</li>
+          <li>Security review of new auth code completed</li>
+        </ul>
+
+        <h2>7. Exit Criteria</h2>
+        <ul>
+          <li>≥100% of CRITICAL test cases passed</li>
+          <li>≥95% of HIGH test cases passed</li>
+          <li>≥90% of MEDIUM test cases passed</li>
+          <li>All P0 (blocking) bugs resolved</li>
+          <li>Zero security vulnerabilities identified</li>
+          <li>Token expiration and refresh behavior validated</li>
+          <li>RBAC enforcement validated across all role combinations</li>
+          <li>SSO provider integrations tested and confirmed working</li>
+          <li>Audit logs validated for all auth events</li>
+          <li>API backward compatibility confirmed</li>
+          <li>Security and Product teams sign-off</li>
+        </ul>
+
+        <h2>8. Test Schedule</h2>
+
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Duration</th><th>Timeline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Environment Setup</strong></td><td>2 days</td><td>Week 1 Mon–Tue</td></tr>
+            <tr><td><strong>API & Integration Testing</strong></td><td>2 weeks</td><td>Weeks 1–2</td></tr>
+            <tr><td><strong>Web UI Functional Testing</strong></td><td>2 weeks</td><td>Weeks 2–3</td></tr>
+            <tr><td><strong>Mobile Testing</strong></td><td>1 week</td><td>Week 4</td></tr>
+            <tr><td><strong>Cross-Browser Testing</strong></td><td>3 days</td><td>Week 4</td></tr>
+            <tr><td><strong>UAT & Security Review</strong></td><td>1 week</td><td>Week 6</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Go-Live Target:</strong> Start of Week 7</p>
+
+        <h2>9. Resources</h2>
+
+        <h3>Team</h3>
+        <ul>
+          <li>QA Manager (test planning, risk oversight, sign-off)</li>
+          <li>QA Lead (day-to-day test coordination)</li>
+          <li>QA Automation Engineer (API testing, test automation)</li>
+          <li>QA Analysts × 3 (functional testing, web UI, edge cases)</li>
+          <li>Mobile QA Analyst (mobile OAuth flow, app testing)</li>
+          <li>Security Engineer (code review, vulnerability assessment)</li>
+        </ul>
+
+        <h2>10. Test Deliverables</h2>
+        <ul>
+          <li>Test Plan (this document)</li>
+          <li>Test Case Suite (minimum 150 test cases)</li>
+          <li>Risk Assessment Matrix (detailed)</li>
+          <li>RBAC Test Matrix (all role-permission combinations)</li>
+          <li>Automated Test Scripts (Postman, Selenium, Appium)</li>
+          <li>Performance Baseline Report</li>
+          <li>Security Testing Report</li>
+          <li>Regression Test Summary Report</li>
+          <li>Defect Report</li>
+          <li>Deployment Runbook with Rollback Procedures</li>
+        </ul>
+      </div>
+
+      <a href="../test-plans/" class="back-link">← Back to Test Plans</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

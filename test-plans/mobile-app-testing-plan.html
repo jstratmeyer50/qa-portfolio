@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile App Testing Plan | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-plans/">Test Plans</a> / Mobile App Testing Plan
+      </div>
+
+      <div class="content-header">
+        <h1>Test Plan: Mobile E-Commerce Application</h1>
+        <p style="color: #8fff88; font-style: italic;">iOS &amp; Android</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Version</span><span class="meta-value">1.0</span></div>
+        <div class="meta-item"><span class="meta-label">Author</span><span class="meta-value">Mobile QA Lead</span></div>
+        <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">2024-Q3</span></div>
+        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Ready for Execution</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Executive Summary</h2>
+        <p>This test plan covers comprehensive testing of a native mobile e-commerce application for iOS and Android platforms. The app enables customers to browse products, manage wishlists, place orders, and track shipments on smartphones and tablets. Testing will validate functionality, performance, usability, and platform-specific behaviors across multiple devices and OS versions.</p>
+        <p><strong>Criticality:</strong> HIGH — Mobile commerce is primary revenue driver; poor app quality directly impacts user retention and revenue.</p>
+
+        <h2>2. Objectives</h2>
+        <ul>
+          <li>Validate core e-commerce workflows (browse, search, add to cart, checkout, order confirmation)</li>
+          <li>Verify app stability and performance on target devices and OS versions</li>
+          <li>Confirm proper handling of device-specific features (camera, location, notifications, permissions)</li>
+          <li>Test network resilience (WiFi, cellular, offline scenarios)</li>
+          <li>Validate UI/UX consistency across form factors (phones, tablets)</li>
+          <li>Ensure accessibility compliance (VoiceOver, TalkBack, text sizing)</li>
+          <li>Test in-app payment integration</li>
+          <li>Verify deep linking and push notification functionality</li>
+        </ul>
+
+        <h2>3. Scope</h2>
+
+        <h3>In Scope</h3>
+
+        <h4>iOS:</h4>
+        <ul>
+          <li>iPhone 13, 14, 15 (latest devices)</li>
+          <li>iOS 15.0, 16.x, 17.x (minimum support: iOS 15)</li>
+          <li>iPad (9.7", 10.9" variants)</li>
+        </ul>
+
+        <h4>Android:</h4>
+        <ul>
+          <li>Samsung Galaxy S21, S22, S23 (flagship)</li>
+          <li>Google Pixel 6, 7, 8 (recent)</li>
+          <li>OnePlus 11, 12</li>
+          <li>Motorola One (budget segment)</li>
+          <li>Android 11, 12, 13, 14 (minimum support: Android 11)</li>
+        </ul>
+
+        <h4>Features:</h4>
+        <ul>
+          <li>User authentication (sign-up, login, social login)</li>
+          <li>Product browse, search, filtering</li>
+          <li>Product details (images, reviews, specs)</li>
+          <li>Shopping cart management</li>
+          <li>Wishlist/favorites</li>
+          <li>Checkout flow (shipping, billing, payment)</li>
+          <li>Order confirmation and history</li>
+          <li>Push notifications</li>
+          <li>In-app messaging/banners</li>
+          <li>User account settings</li>
+        </ul>
+
+        <h2>4. Test Strategy</h2>
+
+        <h3>Testing Types by Platform</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>iOS</th>
+              <th>Android</th>
+              <th>Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Functional</strong></td>
+              <td>30%</td>
+              <td>30%</td>
+              <td>Core workflows, feature parity</td>
+            </tr>
+            <tr>
+              <td><strong>Regression</strong></td>
+              <td>20%</td>
+              <td>20%</td>
+              <td>Previous releases stability</td>
+            </tr>
+            <tr>
+              <td><strong>Performance</strong></td>
+              <td>15%</td>
+              <td>15%</td>
+              <td>App launch, scroll, memory usage</td>
+            </tr>
+            <tr>
+              <td><strong>Platform-Specific</strong></td>
+              <td>20%</td>
+              <td>20%</td>
+              <td>iOS notch/safe area; Android permissions</td>
+            </tr>
+            <tr>
+              <td><strong>Network</strong></td>
+              <td>10%</td>
+              <td>10%</td>
+              <td>WiFi/cellular/offline resilience</td>
+            </tr>
+            <tr>
+              <td><strong>Accessibility</strong></td>
+              <td>5%</td>
+              <td>5%</td>
+              <td>Screen readers, text sizing</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5. Risk Assessment</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>App crashes on specific OS versions</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Test matrix coverage, crash reporting (Firebase)</td>
+            </tr>
+            <tr>
+              <td>Memory leaks during extended use</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Profiling tools (Xcode Instruments, Android Studio Monitor)</td>
+            </tr>
+            <tr>
+              <td>UI layout broken on tablet/large screens</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Layout testing on varied screen sizes</td>
+            </tr>
+            <tr>
+              <td>Push notification delivery failures</td>
+              <td>Low</td>
+              <td>Medium</td>
+              <td>Testing with Firebase Cloud Messaging</td>
+            </tr>
+            <tr>
+              <td>Permissions denied → app breaks</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Test all permission denial scenarios</td>
+            </tr>
+            <tr>
+              <td>Network timeout handling</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Throttle network, test error messaging</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Entry Criteria</h2>
+        <ul>
+          <li>iOS and Android builds available in QA distribution (TestFlight, Firebase App Distribution)</li>
+          <li>Test devices provisioned and registered with development teams</li>
+          <li>Automation frameworks configured (XCUITest, Espresso)</li>
+          <li>Test data sets prepared (mock user accounts, product catalogs)</li>
+          <li>Mobile analytics and crash reporting configured (Firebase, Sentry)</li>
+          <li>Network throttling tools installed (Charles Proxy, Burp Suite)</li>
+          <li>Accessibility tools available (Accessibility Inspector, TalkBack/VoiceOver)</li>
+          <li>Baseline performance metrics captured (previous version)</li>
+        </ul>
+
+        <h2>7. Exit Criteria</h2>
+        <ul>
+          <li>100% of test cases executed with ≥95% pass rate (both platforms)</li>
+          <li>All critical/high-severity bugs resolved and verified</li>
+          <li>App tested on minimum 8 device-OS combinations per platform</li>
+          <li>Regression suite passes (no new defects vs. previous version)</li>
+          <li>Performance metrics acceptable (app launch <3s, scroll fps >55)</li>
+          <li>Crash-free user sessions >99.5% (verified via analytics)</li>
+          <li>Push notification delivery >98% success rate</li>
+          <li>Accessibility validation completed (WCAG 2.1 AA compliance)</li>
+          <li>Product team sign-off on feature quality</li>
+          <li>Release notes finalized with known limitations/device restrictions</li>
+        </ul>
+
+        <h2>8. Resources</h2>
+
+        <h3>Team</h3>
+        <ul>
+          <li>Mobile QA Lead (planning, device management, critical issue triage)</li>
+          <li>QA Automation Engineer (XCUITest, Espresso automation)</li>
+          <li>QA Analysts × 2 (manual testing, platform-specific scenarios)</li>
+          <li>Performance Analyst (profiling, memory/battery analysis)</li>
+          <li>Mobile Dev Leads (iOS &amp; Android) (support, sandbox access)</li>
+        </ul>
+
+        <h2>9. Test Deliverables</h2>
+        <ul>
+          <li>Test Plan (this document)</li>
+          <li>Test Case Suite (minimum 120 test cases, iOS &amp; Android)</li>
+          <li>Automated Test Scripts (XCUITest &amp; Espresso)</li>
+          <li>Device Compatibility Matrix (supported devices &amp; OS versions)</li>
+          <li>Performance Baseline Report (launch time, memory, battery impact)</li>
+          <li>Defect Report (all issues, device-specific reproduction steps)</li>
+          <li>Accessibility Report (WCAG compliance findings)</li>
+          <li>Test Summary Report (execution results, coverage metrics)</li>
+          <li>Release Notes (features, supported devices, known issues)</li>
+        </ul>
+      </div>
+
+      <a href="../test-plans/" class="back-link">← Back to Test Plans</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

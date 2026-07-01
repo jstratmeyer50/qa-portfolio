@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>End-to-End User Journey Test Plan | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-plans/">Test Plans</a> / End-to-End User Journey Test Plan
+      </div>
+
+      <div class="content-header">
+        <h1>Test Plan: End-to-End User Journey</h1>
+        <p style="color: #8fff88; font-style: italic;">Onboarding Through Purchase</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Version</span><span class="meta-value">1.0</span></div>
+        <div class="meta-item"><span class="meta-label">Author</span><span class="meta-value">QA Lead, User Experience</span></div>
+        <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">2024-Q3</span></div>
+        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Ready for Execution</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Executive Summary</h2>
+        <p>This test plan validates the complete user journey for new customers: from landing on the marketing site, through account creation and onboarding, exploring features, and completing their first purchase. Unlike feature-specific or system-level test plans, this plan follows a customer-centric approach, ensuring the experience is seamless, intuitive, and conversion-optimized across all touchpoints and devices.</p>
+        <p><strong>Criticality:</strong> HIGH — User journey quality directly impacts customer acquisition, retention, and lifetime value.</p>
+
+        <h2>2. Objectives</h2>
+        <ul>
+          <li>Validate complete conversion funnel from anonymous visitor to paying customer</li>
+          <li>Ensure onboarding flow is clear, intuitive, and completion-driven</li>
+          <li>Verify all cross-device transitions work smoothly (desktop → mobile, mobile → desktop)</li>
+          <li>Confirm feature discovery and product education are effective</li>
+          <li>Validate payment flow is secure and frictionless</li>
+          <li>Test post-purchase experience (confirmation, welcome email, first-use guidance)</li>
+          <li>Identify drop-off points and friction in the user journey</li>
+          <li>Verify accessibility and usability for diverse user populations</li>
+        </ul>
+
+        <h2>3. Scope</h2>
+
+        <h3>User Journey Stages</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>What Happens</th>
+              <th>Duration</th>
+              <th>Key Metrics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Awareness</strong></td>
+              <td>User arrives at landing page</td>
+              <td>2–5 min</td>
+              <td>Page load time, bounce rate</td>
+            </tr>
+            <tr>
+              <td><strong>Education</strong></td>
+              <td>Browse features, pricing, FAQs</td>
+              <td>5–15 min</td>
+              <td>Time on page, scroll depth</td>
+            </tr>
+            <tr>
+              <td><strong>Consideration</strong></td>
+              <td>Read docs, watch videos, compare pricing tiers</td>
+              <td>10–30 min</td>
+              <td>Free trial signup rate</td>
+            </tr>
+            <tr>
+              <td><strong>Signup</strong></td>
+              <td>Create account (email/password or social login)</td>
+              <td>2–3 min</td>
+              <td>Signup completion rate</td>
+            </tr>
+            <tr>
+              <td><strong>Onboarding</strong></td>
+              <td>Complete profile, set preferences, create first project</td>
+              <td>5–15 min</td>
+              <td>Tutorial completion, guide abandonment</td>
+            </tr>
+            <tr>
+              <td><strong>Feature Exploration</strong></td>
+              <td>Use core features, complete sample workflow</td>
+              <td>10–20 min</td>
+              <td>Feature adoption, tool exploration</td>
+            </tr>
+            <tr>
+              <td><strong>First Purchase</strong></td>
+              <td>Select plan, enter payment, complete transaction</td>
+              <td>3–5 min</td>
+              <td>Conversion rate, cart abandonment</td>
+            </tr>
+            <tr>
+              <td><strong>Activation</strong></td>
+              <td>Receive confirmation, access account, get started</td>
+              <td>2–3 min</td>
+              <td>First login, onboarding email engagement</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>4. Test Strategy</h2>
+        <h3>User Scenarios</h3>
+        
+        <h4>Scenario A: Individual User — Quick Signup & Upgrade</h4>
+        <ul>
+          <li>Arrives from ads → browses features → signs up → creates first project → pays → success</li>
+        </ul>
+
+        <h4>Scenario B: Team Lead — Setup Team & Invite Members</h4>
+        <ul>
+          <li>Signs up → creates organization → invites 2 team members → assigns roles → upgrades to team plan → pays</li>
+        </ul>
+
+        <h4>Scenario C: Enterprise User — Self-Service Setup</h4>
+        <ul>
+          <li>Lands on enterprise pricing → requests demo link → signs up with work email → creates workspace → invites multiple users → proceeds to checkout → completes purchase</li>
+        </ul>
+
+        <h4>Scenario D: Mobile-First User</h4>
+        <ul>
+          <li>Discovers app on mobile → reads feature overview → signs up on mobile → continues onboarding → switches to desktop to pay → returns to mobile to confirm order</li>
+        </ul>
+
+        <h2>5. Risk Assessment</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>User abandoned during signup</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>A/B test signup flow, minimize form fields, progress indicator</td>
+            </tr>
+            <tr>
+              <td>Payment failure at final step</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Test payment flow thoroughly, error messaging, retry mechanism</td>
+            </tr>
+            <tr>
+              <td>Onboarding too long → users give up</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Streamline onboarding, make steps skippable, offer tour later</td>
+            </tr>
+            <tr>
+              <td>Responsive design broken on mobile</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Test on actual devices, not just browser dev tools</td>
+            </tr>
+            <tr>
+              <td>Welcome emails not delivered</td>
+              <td>Low</td>
+              <td>Medium</td>
+              <td>Monitor email delivery, test with multiple email providers</td>
+            </tr>
+            <tr>
+              <td>Social login fails (Google/GitHub down)</td>
+              <td>Low</td>
+              <td>High</td>
+              <td>Fallback to email signup, provider status monitoring</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Entry Criteria</h2>
+        <ul>
+          <li>Landing page and marketing site fully deployed</li>
+          <li>Signup form and authentication flow ready</li>
+          <li>Onboarding flow complete</li>
+          <li>Free trial logic implemented</li>
+          <li>Payment integration (Stripe) working</li>
+          <li>Email sending configured (welcome, confirmation emails)</li>
+          <li>Analytics instrumentation in place (event tracking)</li>
+          <li>Test accounts can be created and reset</li>
+          <li>Test data available (sample projects, sample data sets)</li>
+          <li>Mobile devices and simulators ready for testing</li>
+        </ul>
+
+        <h2>7. Exit Criteria</h2>
+        <ul>
+          <li>≥95% of user journey test cases passed across all browsers</li>
+          <li>≥90% on mobile (iOS Safari, Android Chrome)</li>
+          <li>All critical bugs (signup failure, payment failure, email delivery) resolved</li>
+          <li>P1 bugs either resolved or documented as acceptable risk</li>
+          <li>Responsive design working on phones (375px), tablets (768px), desktops (1920px)</li>
+          <li>All user pathways (individual, team, enterprise) validated end-to-end</li>
+          <li>Welcome/onboarding email sequence verified (all emails delivered, correct copy)</li>
+          <li>Payment flow tested: checkout → confirmation → order created successfully</li>
+          <li>Social login tested (at least 2 providers: Google, GitHub)</li>
+          <li>Accessibility validated (keyboard navigation, WCAG 2.1 AA compliance)</li>
+          <li>Performance acceptable (page load <3s, interaction response <100ms)</li>
+          <li>Analytics events tracked correctly for all key user actions</li>
+          <li>Product team sign-off on user experience quality</li>
+          <li>Marketing team validates messaging and CTAs</li>
+        </ul>
+
+        <h2>8. Resources</h2>
+
+        <h3>Team</h3>
+        <ul>
+          <li>QA Lead, User Experience (test planning, coordination, priority setting)</li>
+          <li>QA Analysts × 3 (manual journey testing, cross-browser/device testing)</li>
+          <li>QA Automation Engineer (UI automation, critical path automation)</li>
+          <li>Performance Engineer (load time measurement, optimization consultation)</li>
+          <li>Accessibility Specialist (WCAG compliance testing, assistive tech testing)</li>
+          <li>Product Manager (journey validation, business metrics)</li>
+          <li>UX Designer (feedback on friction points, UX issues)</li>
+        </ul>
+
+        <h2>9. Test Deliverables</h2>
+        <ul>
+          <li>Test Plan (this document)</li>
+          <li>Test Case Suite (user journey scenarios, cross-browser/device)</li>
+          <li>Automated Test Scripts (Selenium / Cypress)</li>
+          <li>Performance Baseline Report</li>
+          <li>Accessibility Compliance Report</li>
+          <li>Defect Report (all issues, severity/priority)</li>
+          <li>Test Summary Report (execution results, conversion metrics)</li>
+          <li>User Journey Analytics Report (drop-off points, friction areas)</li>
+        </ul>
+      </div>
+
+      <a href="../test-plans/" class="back-link">← Back to Test Plans</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

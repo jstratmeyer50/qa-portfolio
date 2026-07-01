@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart Exploration Session Notes | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content h4 { margin: 1rem 0 0.5rem 0; color: #a8ff8f; }
+    .document-content p, .document-content ul { margin: 1rem 0; }
+    .finding { padding: 1rem; background: rgba(255, 193, 7, 0.1); border-left: 3px solid rgba(255, 193, 7, 0.5); margin: 1rem 0; border-radius: 3px; }
+    .finding-title { color: #ffc107; font-weight: 700; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../exploratory-testing/">Exploratory Testing</a> / Session Notes
+      </div>
+
+      <div class="content-header">
+        <h1>Exploratory Testing Session Notes</h1>
+        <p style="color: #8fff88; font-style: italic;">Shopping Cart Feature Investigation</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Test Charter</span><span class="meta-value">Explore shopping cart behavior under edge cases</span></div>
+        <div class="meta-item"><span class="meta-label">Tester</span><span class="meta-value">Senior QA Analyst</span></div>
+        <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">2024-06-18</span></div>
+        <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">4 hours</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>Session Objective</h2>
+        <p>Investigate shopping cart behavior with focus on edge cases, error handling, and user experience under unusual conditions. No predefined test cases — discovery-driven testing.</p>
+
+        <h2>Test Charter</h2>
+        <ul>
+          <li>How does the cart behave with maximum items?</li>
+          <li>What happens when inventory runs out mid-session?</li>
+          <li>How does the system handle price changes?</li>
+          <li>What occurs during concurrent cart modifications?</li>
+          <li>How robust is the quantity input validation?</li>
+        </ul>
+
+        <h2>Session Notes & Findings</h2>
+
+        <h3>Area 1: Cart Capacity & Item Limits</h3>
+
+        <h4>Testing Approach:</h4>
+        <p>Added items to cart incrementally to discover behavior under high load.</p>
+
+        <h4>Activities:</h4>
+        <ul>
+          <li>Added 1 item → cart updated ✓</li>
+          <li>Added 10 items (same product) → quantity shows 10 ✓</li>
+          <li>Added 50 items → cart still functional, no performance issues ✓</li>
+          <li>Added 100+ items → UI began to lag noticeably ⚠️</li>
+          <li>Attempted to add 1000 items → browser became sluggish; UI updates delayed 3–5 seconds</li>
+        </ul>
+
+        <div class="finding">
+          <div class="finding-title">Finding #1: Performance Degradation at Scale</div>
+          <p><strong>Observation:</strong> Cart UI performance degrades when quantity exceeds 100 items. Not a hard limit, but UX becomes poor.</p>
+          <p><strong>Severity:</strong> Medium — Unlikely scenario (user unlikely to order 100+ of same item), but possible.</p>
+          <p><strong>Recommendation:</strong> Consider implementing UI virtualization or lazy loading for large quantities. Add client-side validation to warn user if quantity exceeds reasonable threshold (e.g., 999).</p>
+        </div>
+
+        <h3>Area 2: Inventory & Out-of-Stock Behavior</h3>
+
+        <h4>Testing Approach:</h4>
+        <p>Added item to cart, then manually reduced inventory in database to simulate sell-out.</p>
+
+        <h4>Activities:</h4>
+        <ul>
+          <li>Added product (50 units in stock) to cart ✓</li>
+          <li>Reduced inventory to 20 units in backend database</li>
+          <li>Refreshed cart page → quantity still shows original 50 ✗ (out of sync)</li>
+          <li>Attempted checkout → system allowed checkout with invalid quantity ✗</li>
+          <li>Submitted order → backend rejected with error "Insufficient inventory" (caught at last moment) ✓</li>
+        </ul>
+
+        <div class="finding">
+          <div class="finding-title">Finding #2: Inventory Cache Not Refreshed on Cart Load</div>
+          <p><strong>Observation:</strong> Cart displays cached inventory count; changes in inventory not reflected until page refresh or checkout attempt.</p>
+          <p><strong>Severity:</strong> High — Could result in checkout failures or customer disappointment ("Out of stock" error after proceeding to payment).</p>
+          <p><strong>Recommendation:</strong> Implement real-time inventory sync. Before checkout, re-validate inventory server-side. Show warning if quantity exceeds available stock.</p>
+        </div>
+
+        <h3>Area 3: Price Changes & Promotions</h3>
+
+        <h4>Testing Approach:</h4>
+        <p>Added item to cart at original price, then simulated a price change.</p>
+
+        <h4>Activities:</h4>
+        <ul>
+          <li>Added product at $50 to cart ✓</li>
+          <li>Changed product price in backend to $30</li>
+          <li>Refreshed cart → price still shows $50 ✗ (stale price)</li>
+          <li>Applied promo code (should reduce price) → promo worked, but final total still used cached $50 price ✗</li>
+          <li>Navigated away and back to cart → price updated to $30 ✓</li>
+        </ul>
+
+        <div class="finding">
+          <div class="finding-title">Finding #3: Price Staleness in Cart Display</div>
+          <p><strong>Observation:</strong> Product prices in cart are cached; price changes not reflected until page reload or session refresh.</p>
+          <p><strong>Severity:</strong> High — Customers expect current pricing. Promotional discounts not showing correctly; customer may abandon cart if prices seem incorrect.</p>
+          <p><strong>Recommendation:</strong> Fetch current prices server-side on cart page load. Display if price has changed since item was added. Recalculate total with current prices before checkout.</p>
+        </div>
+
+        <h3>Area 4: Quantity Input Validation</h3>
+
+        <h4>Testing Approach:</h4>
+        <p>Manually edited quantity field with various inputs (negative, decimal, text, extreme values).</p>
+
+        <h4>Activities:</h4>
+        <ul>
+          <li>Changed quantity to 0 → item remained in cart with qty=0 ⚠️ (appears in checkout)</li>
+          <li>Changed quantity to -5 → system accepted negative quantity ✗ (order would have -5 items)</li>
+          <li>Changed quantity to 3.5 → accepted decimal value; backend later rounded or truncated ⚠️</li>
+          <li>Changed quantity to "abc" → field accepted text; form submission failed with server error ✗</li>
+          <li>Changed quantity to 999999999 → accepted; page sluggish but didn't crash</li>
+        </ul>
+
+        <div class="finding">
+          <div class="finding-title">Finding #4: Weak Input Validation on Quantity Field</div>
+          <p><strong>Observation:</strong> Quantity input field accepts invalid values: negative numbers, decimals, text. No client-side validation.</p>
+          <p><strong>Severity:</strong> High — Could result in malformed orders, server errors, or security vulnerability (if not validated server-side).</p>
+          <p><strong>Recommendation:</strong> Add HTML5 input type="number" with min="1" and max attributes. Implement client-side validation with user-friendly error messages. Validate server-side before processing order.</p>
+        </div>
+
+        <h3>Area 5: Concurrent Cart Modifications</h3>
+
+        <h4>Testing Approach:</h4>
+        <p>Opened cart in two browser windows simultaneously and modified items in parallel.</p>
+
+        <h4>Activities:</h4>
+        <ul>
+          <li>Window A: Added 5 units of Product X</li>
+          <li>Window B: Added 3 units of Product Y (simultaneously)</li>
+          <li>Window A: Increased quantity to 10 units</li>
+          <li>Window B: Refresh cart (to sync with server)</li>
+          <li>Window B: Shows Product X (5 units) and Product Y (3 units) — stale data ✗</li>
+          <li>Window A: Product X shows 10 units ✓</li>
+          <li>Window B: After refresh, shows updated quantities ✓ (eventually consistent)</li>
+        </ul>
+
+        <div class="finding">
+          <div class="finding-title">Finding #5: Cart State Inconsistency with Concurrent Access</div>
+          <p><strong>Observation:</strong> Cart state is not synchronized across multiple browser sessions. Changes in one session may not be visible in another until manual refresh.</p>
+          <p><strong>Severity:</strong> Medium — Unlikely for typical single-user scenario, but problematic for shared devices or account sharing. Could result in duplicate items or data loss.</p>
+          <p><strong>Recommendation:</strong> Implement server-side cart session management. Use polling or WebSocket to sync cart state across sessions. Show warning if cart was modified elsewhere.</p>
+        </div>
+
+        <h2>Summary of Findings</h2>
+
+        <table style="width: 100%; margin: 1.5rem 0; border-collapse: collapse;">
+          <thead>
+            <tr style="background: rgba(10, 30, 10, 0.5); border: 1px solid rgba(144, 255, 144, 0.3);">
+              <th style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #b8ff8f; font-weight: 700;">Finding</th>
+              <th style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #b8ff8f; font-weight: 700;">Severity</th>
+              <th style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #b8ff8f; font-weight: 700;">Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: rgba(0, 10, 0, 0.2); border: 1px solid rgba(144, 255, 144, 0.2);">
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Performance degradation at scale (100+ items)</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #ffc107;">Medium</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Poor UX, unlikely scenario</td>
+            </tr>
+            <tr style="background: rgba(0, 10, 0, 0.2); border: 1px solid rgba(144, 255, 144, 0.2);">
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Inventory cache not refreshed</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #ff6b6b;">High</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Checkout failures, customer dissatisfaction</td>
+            </tr>
+            <tr style="background: rgba(0, 10, 0, 0.2); border: 1px solid rgba(144, 255, 144, 0.2);">
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Price staleness in cart</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #ff6b6b;">High</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Incorrect pricing, lost promotions, cart abandonment</td>
+            </tr>
+            <tr style="background: rgba(0, 10, 0, 0.2); border: 1px solid rgba(144, 255, 144, 0.2);">
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Weak input validation on quantity</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #ff6b6b;">High</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Malformed orders, server errors, potential security issue</td>
+            </tr>
+            <tr style="background: rgba(0, 10, 0, 0.2); border: 1px solid rgba(144, 255, 144, 0.2);">
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Cart state inconsistency across sessions</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2); color: #ffc107;">Medium</td>
+              <td style="padding: 0.75rem; border: 1px solid rgba(144, 255, 144, 0.2);">Unlikely but problematic for shared accounts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Recommendations for Development</h2>
+        <ul>
+          <li><strong>Urgent:</strong> Fix inventory cache and price staleness issues</li>
+          <li><strong>Urgent:</strong> Add input validation to quantity field (client + server)</li>
+          <li><strong>Important:</strong> Implement server-side cart session management</li>
+          <li><strong>Consider:</strong> Optimize cart UI rendering for performance at scale</li>
+          <li><strong>Test:</strong> Create regression test cases for each finding</li>
+        </ul>
+
+        <h2>Session Artifacts</h2>
+        <ul>
+          <li>Browser console logs (captured errors)</li>
+          <li>Network request logs (Chrome DevTools)</li>
+          <li>Screenshots of edge case scenarios</li>
+          <li>Database query results (inventory/pricing validation)</li>
+        </ul>
+      </div>
+
+      <a href="../exploratory-testing/" class="back-link">← Back to Exploratory Testing</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

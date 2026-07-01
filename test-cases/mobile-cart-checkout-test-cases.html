@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Cart Checkout Test Cases | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-cases/">Test Cases</a> / Mobile Cart Checkout Test Cases
+      </div>
+
+      <div class="content-header">
+        <h1>Test Case Suite: Mobile Shopping Cart & Checkout</h1>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Suite ID</span><span class="meta-value">TC-CART-MOBILE-001</span></div>
+        <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Mobile (iOS/Android)</span></div>
+        <div class="meta-item"><span class="meta-label">Focus</span><span class="meta-value">Shopping Cart, Checkout Flow</span></div>
+        <div class="meta-item"><span class="meta-label">Last Updated</span><span class="meta-value">2024-06-20</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>Overview</h2>
+        <p>This test suite covers mobile-specific scenarios for shopping cart management and checkout flow on iOS and Android platforms. Tests include responsive design validation, touch interactions, payment processing on mobile, network resilience, and device-specific behavior.</p>
+
+        <h2>Test Cases Summary</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Test Case ID</th>
+              <th>Title</th>
+              <th>Platform</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TC-CART-MOBILE-001</td>
+              <td>Add item to cart from product detail page</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-002</td>
+              <td>Update item quantity in cart</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-003</td>
+              <td>Remove item from cart</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-004</td>
+              <td>Apply discount/promo code</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-005</td>
+              <td>Proceed to checkout on mobile</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-006</td>
+              <td>Enter shipping address on mobile</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-007</td>
+              <td>Select shipping method</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-008</td>
+              <td>Enter payment details on mobile</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-009</td>
+              <td>Complete order and receive confirmation</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-010</td>
+              <td>Handle network timeout during checkout</td>
+              <td>iOS / Android</td>
+              <td>⚠ Flaky</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-011</td>
+              <td>Checkout with saved payment method</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-012</td>
+              <td>Empty cart behavior</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-013</td>
+              <td>Cross-device cart sync</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-014</td>
+              <td>Checkout with one-tap payment (Apple Pay/Google Pay)</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-CART-MOBILE-015</td>
+              <td>Responsive design on various screen sizes</td>
+              <td>iOS / Android</td>
+              <td>✓ Pass</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Key Test Scenarios</h2>
+
+        <h3>Happy Path: Add Item → Checkout → Payment</h3>
+        <ol>
+          <li>User browses products on mobile</li>
+          <li>Selects product and adds to cart</li>
+          <li>Navigates to cart review</li>
+          <li>Proceeds to shipping address entry</li>
+          <li>Selects shipping method and calculates cost</li>
+          <li>Enters payment information</li>
+          <li>Reviews order summary</li>
+          <li>Completes purchase</li>
+          <li>Receives order confirmation and email</li>
+        </ol>
+
+        <h3>Network Resilience: Handling Connectivity Issues</h3>
+        <ul>
+          <li>Add to cart with WiFi, switch to cellular</li>
+          <li>Begin checkout on WiFi, connection drops mid-process</li>
+          <li>Retry checkout with recovered connection</li>
+          <li>Verify no duplicate orders created</li>
+          <li>Test offline mode — ensure appropriate messaging</li>
+        </ul>
+
+        <h3>Device-Specific Features</h3>
+        <ul>
+          <li>iOS: Apple Pay integration, Face ID/Touch ID payments</li>
+          <li>Android: Google Pay integration, fingerprint authentication</li>
+          <li>Both: Camera access for barcode scanning (if applicable)</li>
+          <li>Permission handling: location, contacts, photo library</li>
+        </ul>
+
+        <h3>Responsive Design Validation</h3>
+        <ul>
+          <li>iPhone SE (375px width) — compact layout</li>
+          <li>iPhone 14 Pro (393px width) — standard layout</li>
+          <li>iPhone 14 Pro Max (430px width) — large device layout</li>
+          <li>iPad (768px+ width) — tablet layout</li>
+          <li>Android devices: Pixel 4 (412px), Galaxy S23 (360px), tablets</li>
+          <li>All layouts: text readable, buttons tappable (min 44x44 pt), no overflow</li>
+        </ul>
+
+        <h2>Performance Targets</h2>
+        <ul>
+          <li>Cart page load: < 2 seconds on 4G</li>
+          <li>Checkout page load: < 3 seconds on 4G</li>
+          <li>Add to cart action: < 500ms response time</li>
+          <li>Payment processing: < 5 seconds end-to-end</li>
+          <li>Order confirmation display: immediate after payment success</li>
+        </ul>
+
+        <h2>Accessibility Requirements</h2>
+        <ul>
+          <li>VoiceOver (iOS) and TalkBack (Android) fully support checkout flow</li>
+          <li>Minimum text size: 16pt for body text</li>
+          <li>Color contrast: WCAG AA (4.5:1 for text)</li>
+          <li>Keyboard navigation: all interactive elements accessible</li>
+          <li>Focus indicators: visible and clear</li>
+        </ul>
+
+        <h2>Known Issues & Limitations</h2>
+        <ul>
+          <li>TC-CART-MOBILE-010 is flaky under poor network conditions (work in progress)</li>
+          <li>Apple Pay requires physical device (not testable in simulator)</li>
+          <li>Google Play Billing Library requires real Play Store account</li>
+        </ul>
+      </div>
+
+      <a href="../test-cases/" class="back-link">← Back to Test Cases</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

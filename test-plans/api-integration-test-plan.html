@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Integration Test Plan | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb {
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #8fff88;
+    }
+    .breadcrumb a {
+      color: #a8ff8f;
+    }
+    .content-header {
+      margin-bottom: 2rem;
+    }
+    .content-header h1 {
+      margin: 0 0 1rem 0;
+    }
+    .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(0, 20, 0, 0.4);
+      border-left: 3px solid rgba(168, 255, 143, 0.5);
+      border-radius: 3px;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .meta-label {
+      font-size: 0.8rem;
+      color: #8fff88;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .meta-value {
+      color: #d8ffd5;
+      font-weight: 600;
+    }
+    .document-content {
+      line-height: 1.8;
+      color: #d8ffd5;
+    }
+    .document-content h2 {
+      margin: 2rem 0 1rem 0;
+      border-bottom: 1px solid rgba(144, 255, 144, 0.2);
+      padding-bottom: 0.5rem;
+    }
+    .document-content h3 {
+      margin: 1.5rem 0 0.75rem 0;
+      color: #b8ff8f;
+    }
+    .document-content p {
+      margin: 1rem 0;
+    }
+    .document-content ul,
+    .document-content ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+    .document-content li {
+      margin: 0.5rem 0;
+    }
+    .document-content table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border-collapse: collapse;
+      border: 1px solid rgba(144, 255, 144, 0.3);
+      font-size: 0.95rem;
+    }
+    .document-content th,
+    .document-content td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid rgba(144, 255, 144, 0.2);
+    }
+    .document-content th {
+      background: rgba(10, 30, 10, 0.5);
+      font-weight: 700;
+      color: #b8ff8f;
+    }
+    .document-content td {
+      background: rgba(0, 10, 0, 0.2);
+    }
+    .document-content code {
+      background: rgba(0, 10, 0, 0.5);
+      padding: 0.2rem 0.4rem;
+      border-radius: 2px;
+      font-family: "Courier New", Courier, monospace;
+      color: #a8ff8f;
+    }
+    .document-content pre {
+      background: rgba(0, 10, 0, 0.6);
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-left: 3px solid rgba(168, 255, 143, 0.4);
+    }
+    .document-content pre code {
+      background: none;
+      padding: 0;
+      color: #b8ff8f;
+    }
+    .document-content blockquote {
+      border-left: 3px solid rgba(168, 255, 143, 0.5);
+      padding-left: 1rem;
+      margin-left: 0;
+      color: #a8ff8f;
+      font-style: italic;
+    }
+    .document-content hr {
+      border: none;
+      border-top: 1px solid rgba(144, 255, 144, 0.2);
+      margin: 2rem 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background: rgba(56, 255, 118, 0.1);
+      border: 1px solid rgba(168, 255, 143, 0.4);
+      border-radius: 3px;
+      color: #a8ff8f;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      background: rgba(56, 255, 118, 0.2);
+      border-color: rgba(168, 255, 143, 0.8);
+    }
+    .toc {
+      background: rgba(0, 20, 0, 0.4);
+      border-left: 3px solid rgba(168, 255, 143, 0.5);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 3px;
+    }
+    .toc h3 {
+      margin-top: 0;
+    }
+    .toc ul {
+      margin: 0;
+      padding-left: 2rem;
+    }
+    .toc a {
+      color: #a8ff8f;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1>Jess Stratmeyer</h1>
+        <p class="lead">QA Portfolio</p>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-plans/">Test Plans</a> / API Integration Test Plan
+      </div>
+
+      <div class="content-header">
+        <h1>Test Plan: Third-Party API Integrations</h1>
+        <p style="color: #8fff88; font-style: italic; margin: 0;">Payment, Analytics &amp; Shipping</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item">
+          <span class="meta-label">Document Version</span>
+          <span class="meta-value">1.0</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-value">QA Lead, API Testing</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">2024-Q2</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Ready for Execution</span>
+        </div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Executive Summary</h2>
+        <p>This test plan addresses comprehensive testing of three critical third-party API integrations: a payment processor (Stripe), analytics platform (Mixpanel), and logistics/shipping provider (ShipStation). Each integration is essential to core business functions and requires validation of data integrity, error handling, rate limiting, and event synchronization. This plan ensures our platform correctly sends data to, receives data from, and handles failures with these providers.</p>
+        <p><strong>Criticality:</strong> HIGH — Integration failures result in lost transactions, incomplete analytics, and shipping delays.</p>
+
+        <h2>2. Objectives</h2>
+        <ul>
+          <li>Validate correct API payloads sent to each third-party provider</li>
+          <li>Verify correct parsing and handling of API responses</li>
+          <li>Confirm webhook/callback events are received and processed correctly</li>
+          <li>Test error scenarios (provider downtime, malformed responses, rate limiting)</li>
+          <li>Validate data consistency between our system and each provider</li>
+          <li>Ensure sensitive data (PII, payment info) handled securely</li>
+          <li>Test retry logic and idempotency for failed requests</li>
+          <li>Verify API rate limiting compliance</li>
+          <li>Confirm proper logging and monitoring of integration health</li>
+        </ul>
+
+        <h2>3. Scope</h2>
+
+        <h3>Integration 1: Payment Processor (Stripe)</h3>
+        <p><strong>API Operations:</strong></p>
+        <ul>
+          <li>Create customer object</li>
+          <li>Create charge/payment intent</li>
+          <li>Retrieve transaction status</li>
+          <li>Issue refund (full and partial)</li>
+          <li>Create subscription for recurring billing</li>
+          <li>Cancel subscription</li>
+          <li>Update customer payment method</li>
+          <li>Retrieve payment/refund history</li>
+        </ul>
+
+        <p><strong>Webhooks:</strong></p>
+        <ul>
+          <li><code>charge.succeeded</code> — payment successful</li>
+          <li><code>charge.failed</code> — payment declined/failed</li>
+          <li><code>customer.subscription.created</code> — recurring billing active</li>
+          <li><code>customer.subscription.deleted</code> — subscription cancelled</li>
+          <li><code>charge.refunded</code> — refund processed</li>
+        </ul>
+
+        <p><strong>Test Scenarios:</strong></p>
+        <ul>
+          <li>Valid vs. invalid card numbers</li>
+          <li>Declined cards (insufficient funds, lost/stolen, expired)</li>
+          <li>3D Secure authentication (SCA in EU)</li>
+          <li>Refund processing (full, partial, multiple)</li>
+          <li>Idempotency — duplicate requests return same result</li>
+          <li>Rate limiting (Stripe: 100 req/sec) — graceful handling</li>
+          <li>Webhook delivery failures and retries</li>
+        </ul>
+
+        <h3>Integration 2: Analytics Platform (Mixpanel)</h3>
+        <p><strong>API Operations:</strong></p>
+        <ul>
+          <li>Track event (user action)</li>
+          <li>Set user properties (demographics, subscription tier)</li>
+          <li>Update user profile</li>
+          <li>Batch event ingestion</li>
+          <li>Retrieve cohort data</li>
+          <li>Funnel analysis export</li>
+        </ul>
+
+        <h3>Integration 3: Logistics/Shipping (ShipStation)</h3>
+        <p><strong>API Operations:</strong></p>
+        <ul>
+          <li>Create shipment</li>
+          <li>Retrieve tracking information</li>
+          <li>Update shipment status</li>
+          <li>Void/cancel shipment</li>
+          <li>Generate shipping label (PDF)</li>
+          <li>List available carriers and rates</li>
+        </ul>
+
+        <h2>4. Test Strategy</h2>
+
+        <h3>Testing Approach</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Effort</th>
+              <th>Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Happy Path</strong></td>
+              <td>30%</td>
+              <td>Core flows work correctly with valid data</td>
+            </tr>
+            <tr>
+              <td><strong>Negative Testing</strong></td>
+              <td>25%</td>
+              <td>Error handling (invalid data, provider errors)</td>
+            </tr>
+            <tr>
+              <td><strong>Edge Cases</strong></td>
+              <td>20%</td>
+              <td>Boundary conditions, rate limiting, duplicates</td>
+            </tr>
+            <tr>
+              <td><strong>Data Consistency</strong></td>
+              <td>15%</td>
+              <td>Our system ↔ provider data stays synchronized</td>
+            </tr>
+            <tr>
+              <td><strong>Reliability</strong></td>
+              <td>10%</td>
+              <td>Retries, webhooks, offline scenarios</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>5. Risk Assessment</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Data loss during API calls</strong></td>
+              <td>Low</td>
+              <td>Critical</td>
+              <td>Idempotency keys, transaction logging, reconciliation reports</td>
+            </tr>
+            <tr>
+              <td><strong>Payment processed twice</strong></td>
+              <td>Low</td>
+              <td>High</td>
+              <td>Idempotency validation, duplicate detection in tests</td>
+            </tr>
+            <tr>
+              <td><strong>Analytics events lost</strong></td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Retry queue, offline buffering, batch delivery confirmation</td>
+            </tr>
+            <tr>
+              <td><strong>Webhook delivery failures</strong></td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>Provider retry behavior testing, manual reconciliation job</td>
+            </tr>
+            <tr>
+              <td><strong>PII leaked in logs/errors</strong></td>
+              <td>Low</td>
+              <td>Critical</td>
+              <td>Log masking, error message review, security audit</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>6. Entry Criteria</h2>
+        <ul>
+          <li>All three providers (Stripe, Mixpanel, ShipStation) have sandbox accounts configured</li>
+          <li>Provider API documentation available and reviewed</li>
+          <li>Integration code complete and ready for testing</li>
+          <li>Test data prepared (test credit cards, mock orders, mock users)</li>
+          <li>Monitoring/logging configured (log aggregation, APM tools)</li>
+          <li>Database backup/restore procedures available</li>
+          <li>Webhook receiver endpoint deployed and tested</li>
+          <li>Request/response logging configured (Postman, custom logging)</li>
+          <li>Team trained on provider-specific behaviors</li>
+        </ul>
+
+        <h2>7. Exit Criteria</h2>
+        <ul>
+          <li>100% of happy path test cases passed</li>
+          <li>95%+ of negative/edge case test cases passed</li>
+          <li>All P0 bugs resolved</li>
+          <li>P1 bugs either fixed or documented as acceptable risk</li>
+          <li>Idempotency testing validated for all critical operations</li>
+          <li>Webhook delivery and processing tested and working</li>
+          <li>Rate limiting handling verified</li>
+          <li>Data consistency verified (no discrepancies between systems)</li>
+          <li>Error logging and monitoring confirmed operational</li>
+          <li>Provider account credentials secure (no exposure in logs, configs)</li>
+          <li>Security review of integration code completed</li>
+          <li>Performance acceptable (API response time &lt;2s, webhook processing &lt;5s)</li>
+          <li>Product and Finance teams sign-off (payment), Product sign-off (analytics/shipping)</li>
+        </ul>
+
+        <h2>8. Test Schedule</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Duration</th>
+              <th>Timeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Setup &amp; Sandbox Config</strong></td>
+              <td>2 days</td>
+              <td>Week 1 Mon–Tue</td>
+            </tr>
+            <tr>
+              <td><strong>Stripe Integration Testing</strong></td>
+              <td>2 weeks</td>
+              <td>Weeks 1–2</td>
+            </tr>
+            <tr>
+              <td><strong>Mixpanel Integration Testing</strong></td>
+              <td>1 week</td>
+              <td>Weeks 2–3</td>
+            </tr>
+            <tr>
+              <td><strong>ShipStation Integration Testing</strong></td>
+              <td>1 week</td>
+              <td>Weeks 3–4</td>
+            </tr>
+            <tr>
+              <td><strong>Cross-Integration Testing</strong></td>
+              <td>3 days</td>
+              <td>Week 4 (Wed–Fri)</td>
+            </tr>
+            <tr>
+              <td><strong>Data Consistency &amp; Reconciliation</strong></td>
+              <td>3 days</td>
+              <td>Week 5 (Mon–Wed)</td>
+            </tr>
+            <tr>
+              <td><strong>Performance &amp; Load Testing</strong></td>
+              <td>2 days</td>
+              <td>Week 5 (Thu–Fri)</td>
+            </tr>
+            <tr>
+              <td><strong>Retesting &amp; Sign-Off</strong></td>
+              <td>2 days</td>
+              <td>Week 6 (Mon–Tue)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>9. Resources</h2>
+        <h3>Team</h3>
+        <ul>
+          <li><strong>QA Lead, API Testing</strong> (planning, coordination, critical issue triage)</li>
+          <li><strong>QA Automation Engineer</strong> × 2 (API test automation, Postman scripts)</li>
+          <li><strong>QA Analyst</strong> (manual testing, webhook validation, data consistency)</li>
+          <li><strong>Dev Lead</strong> (integration support, troubleshooting)</li>
+          <li><strong>Security Engineer</strong> (credential management, data handling review)</li>
+        </ul>
+
+        <h2>10. Test Deliverables</h2>
+        <ul>
+          <li>Test Plan (this document)</li>
+          <li>Test Case Suite (minimum 100+ test cases, 30+ per integration)</li>
+          <li>Postman Collections (organized by integration and scenario)</li>
+          <li>API Request/Response Examples (for each operation)</li>
+          <li>Automation Test Scripts (Python, JavaScript, or similar)</li>
+          <li>Webhook Testing Guide (local testing setup)</li>
+          <li>Data Reconciliation Queries (SQL for consistency checks)</li>
+          <li>Rate Limiting Validation Report</li>
+          <li>Integration Dependency Matrix (which features depend on each integration)</li>
+          <li>Defect Report (all issues found)</li>
+          <li>Test Summary Report (execution results, metrics)</li>
+        </ul>
+      </div>
+
+      <a href="../test-plans/" class="back-link">← Back to Test Plans</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

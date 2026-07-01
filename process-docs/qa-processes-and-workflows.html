@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA Processes and Workflows | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../process-docs/">Process Docs</a> / QA Processes and Workflows
+      </div>
+
+      <div class="content-header">
+        <h1>QA Processes and Workflows</h1>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Purpose</span><span class="meta-value">Document QA Practices & Procedures</span></div>
+        <div class="meta-item"><span class="meta-label">Audience</span><span class="meta-value">QA Team, Dev Team, Product</span></div>
+        <div class="meta-item"><span class="meta-label">Last Updated</span><span class="meta-value">2024-06-20</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>1. Testing Lifecycle Overview</h2>
+
+        <h3>Test Planning Phase</h3>
+        <ul>
+          <li>Review requirements and acceptance criteria</li>
+          <li>Assess risk and complexity</li>
+          <li>Estimate testing effort and timeline</li>
+          <li>Identify test scenarios and edge cases</li>
+          <li>Plan for automation vs. manual testing</li>
+          <li>Document in test plan and share with stakeholders</li>
+        </ul>
+
+        <h3>Test Preparation Phase</h3>
+        <ul>
+          <li>Set up test environments and test data</li>
+          <li>Create or update test cases</li>
+          <li>Prepare automation scripts and test fixtures</li>
+          <li>Brief QA team on requirements and approach</li>
+          <li>Coordinate with development on build availability</li>
+        </ul>
+
+        <h3>Test Execution Phase</h3>
+        <ul>
+          <li>Execute test cases (manual and automated)</li>
+          <li>Log defects and track issues</li>
+          <li>Verify fixes and retest failures</li>
+          <li>Report daily status and blockers</li>
+          <li>Communicate with development team on failures</li>
+        </ul>
+
+        <h3>Test Completion Phase</h3>
+        <ul>
+          <li>Finalize test results and metrics</li>
+          <li>Prepare test summary report</li>
+          <li>Conduct post-release testing if needed</li>
+          <li>Perform retrospective: lessons learned</li>
+          <li>Archive test artifacts for future reference</li>
+        </ul>
+
+        <h2>2. Defect Management Process</h2>
+
+        <h3>Defect Reporting</h3>
+        <table>
+          <thead>
+            <tr><th>Step</th><th>Action</th><th>Owner</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Identify Issue</td>
+              <td>QA finds unexpected behavior during testing</td>
+              <td>QA Analyst</td>
+            </tr>
+            <tr>
+              <td>2. Document Defect</td>
+              <td>Create bug report with title, steps, expected vs. actual</td>
+              <td>QA Analyst</td>
+            </tr>
+            <tr>
+              <td>3. Classify</td>
+              <td>Assign severity (Critical, High, Medium, Low) and priority (P0–P4)</td>
+              <td>QA Lead</td>
+            </tr>
+            <tr>
+              <td>4. Assign</td>
+              <td>Assign to developer or team responsible</td>
+              <td>Dev Lead / QA Lead</td>
+            </tr>
+            <tr>
+              <td>5. Review</td>
+              <td>Developer reviews and provides initial assessment</td>
+              <td>Developer</td>
+            </tr>
+            <tr>
+              <td>6. Implement Fix</td>
+              <td>Developer implements fix and submits for review</td>
+              <td>Developer</td>
+            </tr>
+            <tr>
+              <td>7. Verify Fix</td>
+              <td>QA tests fix and confirms resolution</td>
+              <td>QA Analyst</td>
+            </tr>
+            <tr>
+              <td>8. Close Defect</td>
+              <td>Mark as resolved or re-open if not fixed</td>
+              <td>QA Lead</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Severity & Priority Matrix</h3>
+        <table>
+          <thead>
+            <tr><th>Severity</th><th>Definition</th><th>Impact</th><th>Priority</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Critical</strong></td>
+              <td>Application crash, data loss, security vulnerability</td>
+              <td>Cannot proceed; blocks release</td>
+              <td>P0</td>
+            </tr>
+            <tr>
+              <td><strong>High</strong></td>
+              <td>Major feature broken; workaround difficult</td>
+              <td>Significant impact on users</td>
+              <td>P1</td>
+            </tr>
+            <tr>
+              <td><strong>Medium</strong></td>
+              <td>Feature not working correctly; workaround exists</td>
+              <td>Moderate impact; can defer to next sprint</td>
+              <td>P2</td>
+            </tr>
+            <tr>
+              <td><strong>Low</strong></td>
+              <td>Minor UI issue, cosmetic problem, nice-to-have fix</td>
+              <td>Minimal user impact</td>
+              <td>P3–P4</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>3. Test Automation Strategy</h2>
+
+        <h3>What to Automate</h3>
+        <ul>
+          <li><strong>Regression Tests:</strong> Stable features that don't change often</li>
+          <li><strong>Happy Paths:</strong> Core workflows with predictable inputs/outputs</li>
+          <li><strong>Data-Driven Tests:</strong> Scenarios with multiple input combinations</li>
+          <li><strong>Cross-Browser Tests:</strong> Verify functionality across multiple browsers</li>
+          <li><strong>Performance Tests:</strong> Load, stress, and endurance scenarios</li>
+        </ul>
+
+        <h3>What NOT to Automate</h3>
+        <ul>
+          <li><strong>One-Time Tests:</strong> Automation cost exceeds benefit</li>
+          <li><strong>Exploratory Testing:</strong> Requires human intuition and creativity</li>
+          <li><strong>UI Polish:</strong> Visual alignment, font styling (prone to false positives)</li>
+          <li><strong>User Experience:</strong> Subjective assessment requires human judgment</li>
+          <li><strong>Accessibility (initial):</strong> Requires manual verification with assistive tech</li>
+        </ul>
+
+        <h3>Automation Tools & Frameworks</h3>
+        <ul>
+          <li><strong>Web:</strong> Selenium + Python/Java, Cypress, Playwright</li>
+          <li><strong>Mobile:</strong> Appium, XCUITest (iOS), Espresso (Android)</li>
+          <li><strong>API:</strong> Postman, REST Assured, pytest-requests</li>
+          <li><strong>Performance:</strong> JMeter, Gatling, k6</li>
+          <li><strong>CI/CD:</strong> GitHub Actions, GitLab CI, Jenkins</li>
+        </ul>
+
+        <h2>4. Communication & Reporting</h2>
+
+        <h3>Daily Status Report (Scrum Team)</h3>
+        <ul>
+          <li>Completed testing activities yesterday</li>
+          <li>Planned testing activities today</li>
+          <li>Any blockers or dependencies</li>
+          <li>Defect count and trending (pass rate)</li>
+          <li>At-risk areas or concerns</li>
+        </ul>
+
+        <h3>Sprint Retrospective</h3>
+        <ul>
+          <li>What went well in testing</li>
+          <li>What could be improved</li>
+          <li>Action items for next sprint</li>
+          <li>Automation opportunities identified</li>
+          <li>Process improvements to try</li>
+        </ul>
+
+        <h3>Release Notes</h3>
+        <ul>
+          <li>Summary of features tested and approved</li>
+          <li>Known issues or limitations</li>
+          <li>Breaking changes or migrations</li>
+          <li>Supported platforms and versions</li>
+          <li>Customer communication or warnings</li>
+        </ul>
+
+        <h2>5. Quality Gates & Release Criteria</h2>
+
+        <h3>Before Development Starts</h3>
+        <ul>
+          <li>Requirements clear and testable</li>
+          <li>Acceptance criteria defined</li>
+          <li>Test plan created and reviewed</li>
+        </ul>
+
+        <h3>Before Testing Starts</h3>
+        <ul>
+          <li>Build deployed to QA environment</li>
+          <li>Test data prepared</li>
+          <li>Test environment verified (no blockers)</li>
+          <li>Previous sprint's bugs resolved</li>
+        </ul>
+
+        <h3>Before Release</h3>
+        <ul>
+          <li>Test execution complete: ≥95% pass rate</li>
+          <li>All P0/P1 bugs fixed and verified</li>
+          <li>P2 bugs documented for future sprints</li>
+          <li>Performance metrics acceptable</li>
+          <li>Security review passed</li>
+          <li>Deployment procedure tested</li>
+          <li>Rollback plan documented</li>
+          <li>Team sign-off (QA, Dev, Product, Operations)</li>
+        </ul>
+
+        <h2>6. Continuous Improvement</h2>
+
+        <h3>Metrics Tracked</h3>
+        <ul>
+          <li>Test execution rate (test cases completed per day)</li>
+          <li>Defect detection rate (bugs found per test case)</li>
+          <li>Pass rate (% of test cases passing)</li>
+          <li>Bug escape rate (bugs found in production)</li>
+          <li>Test automation coverage (% of features automated)</li>
+          <li>Mean time to fix (MTTR) for critical bugs</li>
+        </ul>
+
+        <h3>Process Optimization</h3>
+        <ul>
+          <li>Identify bottlenecks in testing process</li>
+          <li>Automate repetitive manual tasks</li>
+          <li>Improve defect logging and categorization</li>
+          <li>Refine risk-based testing approach</li>
+          <li>Incorporate team feedback and learnings</li>
+        </ul>
+      </div>
+
+      <a href="../process-docs/" class="back-link">← Back to Process Docs</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>

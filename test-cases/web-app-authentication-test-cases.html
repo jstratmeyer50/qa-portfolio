@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web App Authentication Test Cases | QA Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; color: #8fff88; }
+    .breadcrumb a { color: #a8ff8f; }
+    .content-header h1 { margin: 0 0 1rem 0; }
+    .meta-info { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.5rem 0; padding: 1rem; background: rgba(0, 20, 0, 0.4); border-left: 3px solid rgba(168, 255, 143, 0.5); border-radius: 3px; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .meta-label { font-size: 0.8rem; color: #8fff88; text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { color: #d8ffd5; font-weight: 600; }
+    .document-content { line-height: 1.8; color: #d8ffd5; }
+    .document-content h2 { margin: 2rem 0 1rem 0; border-bottom: 1px solid rgba(144, 255, 144, 0.2); padding-bottom: 0.5rem; }
+    .document-content h3 { margin: 1.5rem 0 0.75rem 0; color: #b8ff8f; }
+    .document-content h4 { margin: 1rem 0 0.5rem 0; color: #a8ff8f; }
+    .document-content p, .document-content ul, .document-content ol { margin: 1rem 0; }
+    .document-content table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; border: 1px solid rgba(144, 255, 144, 0.3); font-size: 0.95rem; }
+    .document-content th, .document-content td { padding: 0.75rem; text-align: left; border: 1px solid rgba(144, 255, 144, 0.2); }
+    .document-content th { background: rgba(10, 30, 10, 0.5); font-weight: 700; color: #b8ff8f; }
+    .document-content td { background: rgba(0, 10, 0, 0.2); }
+    .document-content code { background: rgba(0, 10, 0, 0.5); padding: 0.2rem 0.4rem; border-radius: 2px; color: #a8ff8f; }
+    .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: rgba(56, 255, 118, 0.1); border: 1px solid rgba(168, 255, 143, 0.4); border-radius: 3px; color: #a8ff8f; text-decoration: none; font-size: 0.9rem; }
+    .back-link:hover { background: rgba(56, 255, 118, 0.2); border-color: rgba(168, 255, 143, 0.8); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../test-plans/">Test Plans</a>
+        <a href="../test-cases/">Test Cases</a>
+        <a href="../bug-reports/">Bug Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../test-cases/">Test Cases</a> / Web App Authentication Test Cases
+      </div>
+
+      <div class="content-header">
+        <h1>Test Case Suite: Web Application Authentication</h1>
+        <p style="color: #8fff88; font-style: italic;">User Authentication & Login</p>
+      </div>
+
+      <div class="meta-info">
+        <div class="meta-item"><span class="meta-label">Suite ID</span><span class="meta-value">TC-AUTH-001</span></div>
+        <div class="meta-item"><span class="meta-label">Application</span><span class="meta-value">Project Management SaaS</span></div>
+        <div class="meta-item"><span class="meta-label">Module</span><span class="meta-value">Authentication & Session</span></div>
+        <div class="meta-item"><span class="meta-label">Last Updated</span><span class="meta-value">2024-06-15</span></div>
+      </div>
+
+      <div class="document-content">
+        <h2>Test Case Overview</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Test Case ID</th>
+              <th>Title</th>
+              <th>Complexity</th>
+              <th>Automation</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TC-AUTH-001</td>
+              <td>Valid login with email/password</td>
+              <td>Low</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-002</td>
+              <td>Invalid password → error message</td>
+              <td>Low</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-003</td>
+              <td>Non-existent user → graceful error</td>
+              <td>Low</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-004</td>
+              <td>Password field is masked</td>
+              <td>Low</td>
+              <td>❌</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-005</td>
+              <td>Remember me → persistent login</td>
+              <td>Medium</td>
+              <td>❌</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-006</td>
+              <td>Session timeout after inactivity</td>
+              <td>Medium</td>
+              <td>❌</td>
+              <td>⚠ Flaky</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-007</td>
+              <td>Concurrent login — multiple devices</td>
+              <td>Medium</td>
+              <td>❌</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-008</td>
+              <td>Account lockout after failed attempts</td>
+              <td>Medium</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-009</td>
+              <td>Forgot password flow</td>
+              <td>Medium</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-010</td>
+              <td>Social login: Google OAuth</td>
+              <td>High</td>
+              <td>❌</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-011</td>
+              <td>SAML SSO (enterprise)</td>
+              <td>High</td>
+              <td>❌</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-012</td>
+              <td>MFA — email code validation</td>
+              <td>High</td>
+              <td>❌</td>
+              <td>⚠ Flaky</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-013</td>
+              <td>Token refresh on API requests</td>
+              <td>High</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-014</td>
+              <td>CSRF protection — form token validation</td>
+              <td>Medium</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+            <tr>
+              <td>TC-AUTH-015</td>
+              <td>Logout — token revocation</td>
+              <td>Low</td>
+              <td>✅</td>
+              <td>✓ Pass</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Detailed Test Cases</h2>
+
+        <h3>TC-AUTH-001: Valid Login with Email/Password</h3>
+
+        <h4>Objective:</h4>
+        <p>Verify a user with valid credentials can successfully log in and access the application.</p>
+
+        <h4>Preconditions:</h4>
+        <ul>
+          <li>User exists in system (email: test.user@example.com, password: ValidPass123!)</li>
+          <li>User is not locked out</li>
+          <li>Browser cookies/cache are cleared</li>
+          <li>User is on the login page</li>
+        </ul>
+
+        <h4>Test Steps:</h4>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Step</th><th>Expected Result</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Enter email address: <code>test.user@example.com</code> in Email field</td>
+              <td>Field accepts input; no error shown</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Enter password: <code>ValidPass123!</code> in Password field</td>
+              <td>Field accepts input; dots/asterisks mask password</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Click "Sign In" button</td>
+              <td>Button becomes disabled; loading spinner appears</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Wait for API response (max 5 seconds)</td>
+              <td>No error message; page redirects to Dashboard</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Verify dashboard loads with user content</td>
+              <td>User name displays in top-right; projects list shows</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Verify session cookie created</td>
+              <td><code>session_id</code> cookie present in browser; <code>HttpOnly</code> flag set</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Refresh page</td>
+              <td>Dashboard persists; no login required</td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Expected Result:</h4>
+        <p>✅ User successfully logged in; dashboard accessible; session established.</p>
+
+        <h4>Actual Result:</h4>
+        <p>✅ Passed</p>
+
+        <h4>Notes:</h4>
+        <ul>
+          <li><strong>Browser/OS:</strong> Chrome 123 / macOS Ventura</li>
+          <li><strong>Automation Script:</strong> <code>tests/auth/login_valid_credentials.spec.js</code></li>
+          <li>Test runs in CI/CD pipeline; execution time ~2 seconds.</li>
+        </ul>
+
+        <h3>TC-AUTH-002: Invalid Password → Error Message</h3>
+
+        <h4>Objective:</h4>
+        <p>Verify the system displays an appropriate error when an incorrect password is provided.</p>
+
+        <h4>Test Steps:</h4>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Step</th><th>Expected Result</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Enter valid email: <code>test.user@example.com</code></td>
+              <td>Email field accepts input</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Enter incorrect password: <code>WrongPass123!</code></td>
+              <td>Password field accepts input; masked</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Click "Sign In" button</td>
+              <td>Loading spinner appears</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Wait for response</td>
+              <td>Error message appears: "Invalid email or password"</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Verify error styling</td>
+              <td>Error text in red; icon indicating error shown</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Verify user not logged in</td>
+              <td>Dashboard not accessible; login form still visible</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Attempt login again with correct password</td>
+              <td>Subsequent login succeeds (no lockout yet)</td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Expected Result:</h4>
+        <p>✅ Error message displayed; user remains on login page; no session created.</p>
+
+        <h4>Actual Result:</h4>
+        <p>✅ Passed</p>
+
+        <h4>Notes:</h4>
+        <ul>
+          <li><strong>Browser/OS:</strong> Chrome 123 / macOS Ventura</li>
+          <li>Generic error message used to prevent user enumeration (security best practice).</li>
+        </ul>
+      </div>
+
+      <a href="../test-cases/" class="back-link">← Back to Test Cases</a>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
+    <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
+  </footer>
+</body>
+</html>
