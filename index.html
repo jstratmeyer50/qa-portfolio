@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <div>
@@ -15,18 +17,18 @@
       </div>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#artifacts">Artifacts</a>
+        <a href="#artifacts">Case Files</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero container">
       <div class="hero-copy">
         <p>Browse structured test plans, detailed test cases, defect reports, checklists, exploratory notes, and QA process documentation built with classic 90s investigator energy.</p>
-        <a class="button" href="#artifacts">Open the archive</a>
+        <a class="button" href="#entry-path">Choose your entry path</a>
       </div>
       <div class="hero-panel">
         <div class="panel-card">
@@ -36,6 +38,46 @@
         <div class="panel-card">
           <span>Investigations</span>
           <strong>Test planning, execution, defect management, exploratory testing</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="entry-path" class="section container">
+      <div class="guide-card">
+        <div class="section-header">
+          <p class="eyebrow">Entry paths</p>
+          <h2>Choose the route that matches your review goal</h2>
+        </div>
+        <div class="entry-grid">
+          <article class="entry-card">
+            <p class="entry-label">For recruiters</p>
+            <h3>Understand the QA story quickly</h3>
+            <p>See how I approach quality, leadership, and release confidence without digging through every artifact.</p>
+            <ul class="helper-list">
+              <li>Review testing experience, tools, and platform coverage.</li>
+              <li>Open release-ready checklists and process notes.</li>
+              <li>Jump to contact details for follow-up.</li>
+            </ul>
+            <div class="guide-links">
+              <a class="link-button" href="#skills">See skills & tools</a>
+              <a class="link-button" href="./checklists/index.html">Review checklists</a>
+            </div>
+          </article>
+
+          <article class="entry-card entry-card--accent">
+            <p class="entry-label">For technical reviewers</p>
+            <h3>Inspect evidence and execution depth</h3>
+            <p>Go straight to the artifacts that show planning, defect handling, and test coverage.</p>
+            <ul class="helper-list">
+              <li>Start with risk-based test plans and detailed test cases.</li>
+              <li>Examine bug reports for reproducible evidence.</li>
+              <li>Explore exploratory notes for investigative depth.</li>
+            </ul>
+            <div class="guide-links">
+              <a class="link-button" href="./test-plans/index.html">Open test plans</a>
+              <a class="link-button" href="./bug-reports/index.html">Open bug reports</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
