@@ -1,101 +1,56 @@
-# 🧪 QA Portfolio — 13+ Years of Manual Quality Assurance
+# QA Portfolio
 
-> Showcasing test strategies, real-world artifacts, and quality engineering practices built across 13 years of professional manual QA work in SaaS, enterprise software, and mobile applications.
+A curated static portfolio site that showcases manual QA artifacts, testing strategies, and quality engineering examples built across 13+ years of experience in SaaS, enterprise software, web applications, and mobile products.
 
----
+## What’s in this repository
 
-## 👋 About Me
+This portfolio now includes:
 
-I'm a seasoned **Manual QA Analyst** with 13 years of hands-on experience ensuring the quality of complex software products. My career spans the full testing lifecycle — from requirements analysis and test planning through execution, defect management, and release sign-off.
+- A polished landing page in [index.html](index.html) with sections for about, artifacts, skills, and contact
+- Shared styling in [styles.css](styles.css)
+- Artifact folders for:
+  - [test-plans](test-plans/)
+  - [test-cases](test-cases/)
+  - [bug-reports](bug-reports/)
+  - [checklists](checklists/)
+  - [process-docs](process-docs/)
+  - [exploratory-testing](exploratory-testing/)
+- Supporting scripts and templates:
+  - [convert_markdown.py](convert_markdown.py)
+  - [markdown-to-html.js](markdown-to-html.js)
+  - [page-template.html](page-template.html)
 
-I've worked across **SaaS platforms**, **enterprise software**, and **mobile applications**, partnering closely with developers, product managers, and stakeholders to ship software that works reliably in the real world.
+## Highlights
 
-**What drives me:** I believe quality isn't a phase — it's a mindset baked into every step of delivery. My job is to ask the questions no one else thought to ask.
+The portfolio demonstrates core QA capabilities such as:
 
----
+- Risk-based test planning
+- Detailed test case design
+- Defect reporting with reproduction steps and impact
+- Regression and release readiness checklists
+- Exploratory testing notes and session-based investigation
+- QA process documentation and workflow examples
 
-## 🗂️ Portfolio Contents
+## Viewing the site locally
 
-| Section | What You'll Find |
-|---|---|
-| [`/test-plans`](./test-plans/) | Structured test plans covering scope, strategy, risk, and entry/exit criteria |
-| [`/test-cases`](./test-cases/) | Detailed test case suites for web, mobile, API, and desktop scenarios |
-| [`/bug-reports`](./bug-reports/) | Well-documented defect examples with steps to reproduce, severity, and business impact |
-| [`/checklists`](./checklists/) | Smoke, regression, and release readiness checklists |
-| [`/process-docs`](./process-docs/) | QA processes, workflows, and templates I've built or refined |
-| [`/exploratory-testing`](./exploratory-testing/) | Session-based exploratory testing notes and charters |
-| [`index.html`](./index.html) + [`styles.css`](./styles.css) | Lightweight portfolio landing page for web presentation |
+Open the site directly in a browser from the repository root, or serve it locally with:
 
-> ⚠️ **Note:** All artifacts use fictional product names and anonymized data. They are representative examples recreated from real experience.
+```bash
+python3 -m http.server 8000
+```
 
----
+Then visit http://localhost:8000.
 
-## 🛠️ Skills & Tools
+## Updating or adding content
 
-### Testing Types
-- Functional & Regression Testing
-- Exploratory & Ad-hoc Testing
-- Smoke & Sanity Testing
-- Integration & End-to-End Testing
-- API Testing
-- Cross-platform & Cross-browser Testing
-- UAT Facilitation
+If you add markdown-based documents to an artifact folder, you can generate HTML pages with:
 
-### Platforms & Specialties
-| Domain | Experience |
-|---|---|
-| **Web Applications** | Full lifecycle testing across browsers and responsive breakpoints |
-| **Mobile (iOS & Android)** | Native and hybrid app testing on physical devices and simulators |
-| **API / Backend** | REST API validation, payload inspection, contract testing |
-| **Desktop Software** | Windows/macOS application testing including install/upgrade flows |
+```bash
+python3 convert_markdown.py
+```
 
-### Tools
-| Category | Tools |
-|---|---|
-| **Test Management** | TestRail, Zephyr (Jira-native) |
-| **Bug & Project Tracking** | Jira |
-| **API Testing** | Postman |
-| **Data Validation** | SQL (queries for back-end verification, data integrity checks) |
-| **Communication** | Confluence, Slack, Google Workspace |
+This will create rendered HTML files alongside the markdown source files using the shared portfolio styling.
 
----
+## Notes
 
-## 💼 Industries
-
-- **SaaS / Enterprise Software** — B2B platforms, admin portals, multi-tenant architectures
-- **Mobile Applications** — Consumer-facing iOS and Android apps
-
----
-
-## 🔍 Testing Philosophy
-
-After 13 years, a few principles guide everything I do:
-
-1. **Test early, test often.** The cheapest bug to fix is the one caught before it's built.
-2. **Risk-based prioritization.** Not all features carry equal risk — I focus testing effort where failures hurt most.
-3. **Reproducibility is non-negotiable.** A bug report that can't be reproduced is a bug report that won't get fixed.
-4. **The spec is a starting point, not a ceiling.** My job is to find what the requirements didn't anticipate.
-5. **Quality is a team sport.** The best QA work I've done has happened in close collaboration with developers and product owners.
-
----
-
-## 📁 Sample Artifacts
-
-Here's a quick preview of what's inside:
-
-- 📄 **Test Plan** — Risk-based test plan for a SaaS onboarding flow
-- ✅ **Test Cases** — Login, user management, and API response validation suites
-- 🐛 **Bug Reports** — High-severity defects with clear reproduction steps and evidence
-- 📋 **Release Checklist** — Pre-production sign-off checklist for a mobile app release
-- 🔎 **Exploratory Testing Charter** — Session notes from an unscripted test session
-- 🌐 **Portfolio Homepage** — New `index.html` and `styles.css` landing page for browsing artifacts in a web-friendly format
-
----
-
-## 📬 Contact
-
-Interested in connecting? Find me on [https://www.linkedin.com/in/jess-stratmeyer/] or reach out via [jessstratmeyer@gmail.com].
-
----
-
-*All work samples in this repository are fictional recreations for portfolio purposes. No proprietary or confidential client information is included.*
+All artifacts in this repository are fictional recreations and anonymized examples created for portfolio purposes. No proprietary or confidential client information is included.
