@@ -45,6 +45,15 @@ python3 -m http.server 8000
 Then visit **http://localhost:8000** in your browser.
 ---
 
+## ✨ Recent Updates
+
+**Latest changes (v2.0):**
+- 🎨 **Enhanced styling system** — Improved CSS design with better spacing, typography, and visual hierarchy
+- 📐 **Refined layout** — Updated page layout for improved readability and user experience
+- 🎯 **Better navigation** — Enhanced site navigation and entry paths for portfolio exploration
+
+---
+
 ## 📝 Updating or adding content
 
 To add markdown-based documents to an artifact folder, generate HTML pages with:
