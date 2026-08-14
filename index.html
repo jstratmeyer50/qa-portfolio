@@ -15,7 +15,15 @@
         <h1>Jess Stratmeyer</h1>
         <p class="lead">13+ years manual QA for SaaS, mobile, and enterprise products. I improve release quality, reduce regression risk, and make testing predictable.</p>
       </div>
-      <nav class="site-nav" aria-label="Primary navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#artifacts">Case Files</a>
         <a href="#skills">Skills</a>
@@ -204,5 +212,24 @@
       <p>© 2026 Jess Stratmeyer. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      siteNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          siteNav.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
