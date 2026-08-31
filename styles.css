@@ -165,8 +165,8 @@ button:focus-visible {
 .site-nav a {
   font-weight: 700;
   padding: 0.2rem 0.35rem;
-  border-bottom: 1px solid transparent;
   white-space: nowrap;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .nav-toggle__icon span {
@@ -175,24 +175,27 @@ button:focus-visible {
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  border-bottom-color: #8ec9ff;
+  color: var(--accent-strong);
+  text-decoration: none;
 }
 
 .hero {
   display: grid;
-  gap: 2rem;
-  padding: 3rem 0 2rem;
+  gap: 1.5rem;
+  padding: 2.5rem 0 1.5rem;
 }
 
 .hero-copy h2 {
   margin-top: 0;
-  font-size: clamp(2rem, 3vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: 0.04em;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.7rem, 2.5vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
 }
 
 .hero-copy p {
-  max-width: 42rem;
+  max-width: 38rem;
+  margin: 0 0 1.25rem;
   color: var(--text-muted);
 }
 
@@ -295,8 +298,8 @@ button:focus-visible {
 }
 
 .entry-card--accent {
-  background: rgba(14, 31, 23, 0.97);
-  border-color: rgba(142, 247, 167, 0.34);
+  background: rgba(13, 29, 43, 0.97);
+  border-color: rgba(142, 201, 255, 0.34);
 }
 
 .entry-label {
