@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{PAGE_TITLE}} | QA Portfolio</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
   <style>
     .breadcrumb {
       margin-bottom: 2rem;
@@ -154,10 +154,11 @@
         <span class="nav-toggle__label">Menu</span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-<a href="../index.html">Home</a>
-        <a href="../test-plans/">Test Plans</a>
-        <a href="../test-cases/">Test Cases</a>
-        <a href="../bug-reports/">Bug Reports</a>
+<a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./case-files.html">Case Files</a>
+        <a href="./skills.html">Skills</a>
+        <a href="./contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -165,7 +166,7 @@
   <main>
     <section class="section container">
       <div class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../{{FOLDER_NAME}}/">{{FOLDER_TITLE}}</a> / {{PAGE_TITLE}}
+        <a href="./index.html">Home</a> / {{FOLDER_TITLE}} / {{PAGE_TITLE}}
       </div>
 
       <div class="content-header">
@@ -177,7 +178,7 @@
         {{DOCUMENT_CONTENT}}
       </div>
 
-      <a href="../{{FOLDER_NAME}}/" class="back-link">← Back to {{FOLDER_TITLE}}</a>
+      <a href="./case-files.html" class="back-link">← Back to {{FOLDER_TITLE}}</a>
     </section>
   </main>
 
