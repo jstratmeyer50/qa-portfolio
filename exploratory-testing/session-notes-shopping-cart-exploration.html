@@ -26,9 +26,16 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="../index.html">Home</a>
+      <div><h1>Jess Stratmeyer</h1><p class="lead">QA Portfolio</p></div>      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span class="nav-toggle__icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+<a href="../index.html">Home</a>
         <a href="../test-plans/">Test Plans</a>
         <a href="../test-cases/">Test Cases</a>
         <a href="../bug-reports/">Bug Reports</a>
@@ -240,5 +247,23 @@
   <footer style="text-align: center; padding: 2rem; color: #8fff88; font-size: 0.9rem; border-top: 1px solid rgba(144, 255, 144, 0.2); margin-top: 3rem;">
     <p>&copy; 2024 Jess Stratmeyer | QA Portfolio</p>
   </footer>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      siteNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          siteNav.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', "false");
+        });
+      });
+    }
+  </script>
 </body>
 </html>

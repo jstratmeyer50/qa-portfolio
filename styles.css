@@ -335,7 +335,7 @@ button:focus-visible {
 }
 
 .section--dark {
-  background: rgba(0, 12, 0, 0.92);
+  background: transparent;
 }
 
 .section--cta {
@@ -534,8 +534,15 @@ button:focus-visible {
     overflow-x: hidden;
   }
 
+  .header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .branding-block {
     gap: 0.75rem;
+    width: 100%;
   }
 
   .header-profile-photo {
@@ -559,10 +566,10 @@ button:focus-visible {
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.8rem 1rem;
-    border: 1px solid rgba(144, 255, 144, 0.2);
+    border: 1px solid rgba(142, 201, 255, 0.3);
     border-radius: 12px;
-    background: rgba(0, 14, 0, 0.9);
-    color: #b8ff8f;
+    background: rgba(12, 25, 36, 0.95);
+    color: var(--accent);
     font: inherit;
     font-weight: 700;
     cursor: pointer;
@@ -587,8 +594,8 @@ button:focus-visible {
     width: 100%;
     margin-top: 0.75rem;
     padding-top: 0.5rem;
-    border-top: 1px solid rgba(144, 255, 144, 0.16);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgba(142, 201, 255, 0.18);
+    flex-direction: column;
     gap: 0.5rem;
     opacity: 0;
     transform: translateY(-6px);
@@ -596,7 +603,7 @@ button:focus-visible {
   }
 
   .site-nav.is-open {
-    display: grid;
+    display: flex;
     opacity: 1;
     transform: translateY(0);
   }
@@ -620,9 +627,10 @@ button:focus-visible {
     min-height: 44px;
     padding: 0.65rem 0.8rem;
     text-align: center;
-    border: 1px solid rgba(144, 255, 144, 0.12);
+    border: 1px solid rgba(142, 201, 255, 0.2);
     border-radius: 10px;
-    background: rgba(0, 10, 0, 0.75);
+    background: rgba(12, 25, 36, 0.85);
+    color: var(--accent);
   }
 
   .site-header h1 {
@@ -695,7 +703,7 @@ button:focus-visible {
 
 @media (max-width: 420px) {
   .site-nav {
-    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 
   .section-header h2 {
