@@ -1,18 +1,18 @@
 :root {
   color-scheme: dark;
-  --bg: #0d2219;
-  --bg-deep: #07150f;
-  --panel: rgba(17, 35, 28, 0.96);
-  --panel-strong: rgba(21, 42, 33, 0.98);
-  --panel-soft: rgba(26, 52, 41, 0.94);
-  --line: rgba(164, 255, 182, 0.22);
-  --text: #edf9ee;
-  --text-strong: #f6fff7;
-  --text-muted: #d9e8d9;
-  --text-soft: #bdd5bf;
-  --accent: #9ef7ad;
-  --accent-strong: #d5ff86;
-  --shadow: rgba(106, 226, 149, 0.16);
+  --bg: #0d1b2a;
+  --bg-deep: #07131d;
+  --panel: rgba(16, 31, 46, 0.96);
+  --panel-strong: rgba(20, 39, 56, 0.98);
+  --panel-soft: rgba(24, 49, 71, 0.94);
+  --line: rgba(145, 205, 255, 0.22);
+  --text: #edf6ff;
+  --text-strong: #f5fbff;
+  --text-muted: #d7e6f6;
+  --text-soft: #bdd4ec;
+  --accent: #8ec9ff;
+  --accent-strong: #b7d9ff;
+  --shadow: rgba(88, 150, 220, 0.16);
   background: var(--bg);
   font-family: "Courier New", Courier, monospace;
   line-height: 1.6;
@@ -33,7 +33,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(180deg, rgba(20, 49, 36, 0.95), rgba(7, 21, 15, 0.98) 28%, var(--bg-deep) 100%);
+  background: linear-gradient(180deg, rgba(17, 35, 52, 0.95), rgba(7, 19, 29, 0.98) 28%, var(--bg-deep) 100%);
   color: var(--text);
   text-shadow: none;
 }
@@ -121,7 +121,7 @@ button:focus-visible {
   height: 88px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid rgba(170, 249, 185, 0.36);
+  border: 2px solid rgba(142, 201, 255, 0.36);
   background: #dfe7df;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
@@ -175,7 +175,7 @@ button:focus-visible {
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  border-bottom-color: #a8ff8f;
+  border-bottom-color: #8ec9ff;
 }
 
 .hero {
@@ -207,10 +207,10 @@ button:focus-visible {
 }
 
 .button {
-  background: #aaf9b9;
-  color: #0a1f12;
-  border: 1px solid rgba(170, 249, 185, 0.7);
-  box-shadow: 0 6px 14px rgba(38, 112, 63, 0.18);
+  background: #9ecfff;
+  color: #071d30;
+  border: 1px solid rgba(158, 207, 255, 0.7);
+  box-shadow: 0 6px 14px rgba(32, 93, 167, 0.18);
 }
 
 .link-button {
@@ -222,7 +222,7 @@ button:focus-visible {
 
 .button:hover, .link-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(36, 123, 73, 0.14);
+  box-shadow: 0 8px 18px rgba(36, 90, 167, 0.14);
 }
 
 .hero-panel {
@@ -244,7 +244,7 @@ button:focus-visible {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(170, 249, 185, 0.18);
+  border: 1px solid rgba(142, 201, 255, 0.18);
   background: #dfe7df;
 }
 
@@ -321,7 +321,7 @@ button:focus-visible {
   padding-left: 1.2rem;
   display: grid;
   gap: 0.7rem;
-  color: #d8ffd7;
+  color: #dcecff;
 }
 
 .guide-links {
@@ -353,8 +353,8 @@ button:focus-visible {
 }
 
 .feature-card, .artifact-card, .cta-card {
-  background: rgba(8, 20, 15, 0.94);
-  border: 1px solid rgba(144, 255, 144, 0.12);
+  background: rgba(8, 20, 29, 0.94);
+  border: 1px solid rgba(142, 201, 255, 0.12);
   border-radius: 16px;
   padding: 1.6rem;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
@@ -362,19 +362,19 @@ button:focus-visible {
 
 .feature-card h3, .artifact-card h3 {
   margin-top: 0;
-  color: #d8ffd7;
+  color: #dcecff;
 }
 
 .feature-card p,
 .artifact-card p {
   margin: 0.75rem 0 0;
-  color: #c8ffd0;
+  color: #cfe5ff;
 }
 
 .automation-intro {
   margin-top: 1.25rem;
   max-width: 48rem;
-  color: #d8ffd7;
+  color: #dcecff;
 }
 
 .automation-grid,
@@ -386,8 +386,8 @@ button:focus-visible {
 
 .automation-card,
 .project-card {
-  background: rgba(9, 22, 17, 0.94);
-  border: 1px solid rgba(144, 255, 144, 0.12);
+  background: rgba(9, 22, 31, 0.94);
+  border: 1px solid rgba(142, 201, 255, 0.12);
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
@@ -395,20 +395,20 @@ button:focus-visible {
 
 .automation-card--accent,
 .project-card--accent {
-  background: rgba(0, 18, 0, 0.96);
-  border-color: rgba(0, 255, 114, 0.2);
+  background: rgba(0, 18, 28, 0.96);
+  border-color: rgba(142, 201, 255, 0.2);
 }
 
 .automation-card h3,
 .project-card h3 {
   margin: 0.25rem 0 0.6rem;
-  color: #f0ffe7;
+  color: #edf7ff;
 }
 
 .automation-card p,
 .project-card p {
   margin: 0;
-  color: #d8ffd7;
+  color: #dcecff;
 }
 
 .skills-grid {
@@ -418,15 +418,15 @@ button:focus-visible {
 }
 
 .skills-grid > div {
-  background: rgba(9, 22, 17, 0.95);
-  border: 1px solid rgba(144, 255, 144, 0.12);
+  background: rgba(9, 22, 31, 0.95);
+  border: 1px solid rgba(142, 201, 255, 0.12);
   border-radius: 16px;
   padding: 1.5rem;
 }
 
 .skills-grid h3 {
   margin-top: 0;
-  color: #e0ffdc;
+  color: #ebf6ff;
 }
 
 .skills-grid ul {
@@ -440,7 +440,7 @@ button:focus-visible {
 
 .cta-card {
   text-align: center;
-  border: 1px solid rgba(0, 255, 114, 0.18);
+  border: 1px solid rgba(142, 201, 255, 0.18);
 }
 
 .cta-card h2 {
@@ -450,12 +450,12 @@ button:focus-visible {
 .cta-card p {
   max-width: 44rem;
   margin: 1rem auto;
-  color: #c8ffd0;
+  color: #d2e8ff;
 }
 
 .site-footer {
   padding: 1.5rem 0 3rem;
-  color: #8cff86;
+  color: #9ccfff;
 }
 
 @media (min-width: 900px) {
