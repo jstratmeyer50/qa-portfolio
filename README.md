@@ -1,74 +1,64 @@
 # 🎯 QA Portfolio
 
-A curated static portfolio site that showcases manual QA artifacts, testing strategies, and quality engineering examples built across **13+ years of experience** in SaaS, enterprise software, web applications, and mobile products.
----
+A static QA portfolio site highlighting manual testing experience, risk-based quality strategy, and real-world evidence across SaaS, web, mobile, and enterprise product workflows.
 
-## 📚 What's in this repository
+## Overview
 
-This portfolio now includes:
+This portfolio is designed to present a professional, recruiter-friendly view of QA work through a polished front-end and curated artifact library. It combines profile content, skills overview, and sample case files that demonstrate practical quality engineering thinking.
 
-- ✨ **Landing Page** — Polished homepage in [index.html](index.html) with sections for about, artifacts, skills, and contact
-- 🎨 **Styling** — Shared design system in [styles.css](styles.css)
-- 📁 **Artifact Folders:**
-  - 📋 [test-plans](test-plans/) — Comprehensive testing strategies
-  - ✅ [test-cases](test-cases/) — Detailed scenario testing
-  - 🐛 [bug-reports](bug-reports/) — Defect documentation
-  - ☑️ [checklists](checklists/) — Quality assurance workflows
-  - 📖 [process-docs](process-docs/) — QA methodologies
-  - 🔍 [exploratory-testing](exploratory-testing/) — Discovery-based testing
-- 🔧 **Utilities:**
-  - 🐍 [convert_markdown.py](convert_markdown.py)
-  - 📜 [markdown-to-html.js](markdown-to-html.js)
-  - 🎭 [page-template.html](page-template.html)
----
+## Current site structure
 
-## 🏆 Highlights
+- [index.html](index.html) — landing page with hero section, experience summary, and key entry points
+- [about.html](about.html) — background, QA philosophy, and professional overview
+- [case-files.html](case-files.html) — archive landing page for test plans, test cases, bug reports, and other artifacts
+- [skills.html](skills.html) — testing and automation skill set overview
+- [contact.html](contact.html) — contact details and outreach information
+- [styles.css](styles.css) — shared visual system and responsive layout styling
 
-The portfolio demonstrates core QA capabilities including:
+## Artifact folders
 
-- 🎯 **Risk-based test planning** — Strategic test prioritization
-- 📝 **Test case design** — Comprehensive scenario coverage
-- 🐛 **Defect reporting** — Detailed reproduction steps and impact analysis
-- ✓ **Regression testing** — Release readiness checklists
-- 🔎 **Exploratory testing** — Session-based investigation notes
-- 📚 **Process documentation** — QA workflow and best practices
----
+- [test-plans](test-plans/) — risk-based planning, strategy, and release criteria
+- [test-cases](test-cases/) — structured scenario-based validation for web and mobile flows
+- [bug-reports](bug-reports/) — defect examples with severity, steps, and impact analysis
+- [checklists](checklists/) — regression and release readiness checklists
+- [process-docs](process-docs/) — QA workflow documentation and operating procedures
+- [exploratory-testing](exploratory-testing/) — exploratory session notes and investigation examples
 
-## 🚀 Viewing the site locally
+## Recent updates
 
-Open the site directly in your browser from the repository root, or serve it locally with:
+The portfolio has recently been expanded and refined to better reflect a more complete QA brand presence:
+
+- Updated landing page with clearer positioning and a stronger value proposition
+- Added dedicated About, Skills, and Contact pages for a fuller portfolio experience
+- Reworked the Case Files archive so each artifact category has a clearer entry point
+- Expanded the QA content library with additional test plans, test cases, and workflow examples
+- Improved styling and navigation for readability, responsiveness, and a more professional presentation
+- Added a consistent structure across portfolio pages and artifact sections
+
+## Local preview
+
+To view the site locally, run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit **http://localhost:8000** in your browser.
----
+Then open http://localhost:8000 in a browser.
 
-## ✨ Recent Updates
+## Content workflow
 
-**Latest changes (v2.0):**
-- 🎨 **Enhanced styling system** — Improved CSS design with better spacing, typography, and visual hierarchy
-- 📐 **Refined layout** — Updated page layout for improved readability and user experience
-- 🎯 **Better navigation** — Enhanced site navigation and entry paths for portfolio exploration
-
----
-
-## 📝 Updating or adding content
-
-To add markdown-based documents to an artifact folder, generate HTML pages with:
+The site is built as a static HTML portfolio. For markdown-based additions, use the conversion utility:
 
 ```bash
 python3 convert_markdown.py
 ```
 
-This will create beautifully rendered HTML files alongside your markdown source using the shared portfolio styling.
+This generates HTML output from markdown source while preserving the shared portfolio styling.
+
+## Notes
+
+All sample artifacts in this repository are fictional or anonymized portfolio examples created for demonstration purposes.
+
 ---
 
-## ⚖️ Notes
-
-All artifacts in this repository are **fictional recreations and anonymized examples** created for portfolio purposes. No proprietary or confidential client information is included.
-
----
-
-**Built with ❤️ for quality engineering excellence**
+Built for quality engineering excellence.
